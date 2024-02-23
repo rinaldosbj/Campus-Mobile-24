@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5456808889788156185}
   - component: {fileID: 3305927524934466034}
   - component: {fileID: 1734887933097689592}
+  - component: {fileID: 3857694875984519558}
   m_Layer: 0
   m_Name: Lobo
   m_TagString: Enemy
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7b4e1bc9bc3409e95b6419685b9f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wolfSpeed: 0.001
 --- !u!61 &3305927524934466034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.000001
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -171,3 +173,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!114 &3857694875984519558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006304870121886869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6c513d400c84d8c9cd76bd361a26ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenProportionX: 0.25
+  screenProportionY: 1
+  isSincronized: 1
+  changeRelativeTo: 1

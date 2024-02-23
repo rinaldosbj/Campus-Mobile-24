@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoboBehavior : MonoBehaviour
 {
-    private float wolfSpeed = 0.001f;
+    [SerializeField] private float wolfSpeed = 0.001f;
     void Start()
     {
         // wolfSpeed = PlayerPrefs.GetInt("wolfSpeed"); <- in the future
