@@ -6,9 +6,11 @@ public class LoboBehavior : MonoBehaviour
 {
     [SerializeField] private float wolfSpeed = 0.001f;
     private float minY;
+    private float timer = 0f;
+    private float timeInterval;
     void Start()
     {
-        // wolfSpeed = PlayerPrefs.GetInt("wolfSpeed"); <- in the future
+        wolfSpeed = PlayerPrefs.GetFloat("wolfSpeed");
         float aspect = (float)Screen.width / Screen.height;
         float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         minY = -worldHeight*0.55f;
