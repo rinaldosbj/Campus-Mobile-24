@@ -10,6 +10,8 @@ public class EnemyGenerator : MonoBehaviour
     private float timer = 0f;
     private float timeInterval;
     [SerializeField] private List<GameObject> enemies;
+    private bool canSpawn = true;
+    private bool triggeredEvent = false;
 
     private void Start() {
         float aspect = (float)Screen.width / Screen.height;
@@ -43,15 +45,25 @@ public class EnemyGenerator : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
-        if (timer <= 0f) 
+        if (timer <= 0f && canSpawn) 
         {
             timer = timeInterval;
             SpawnRandomEnemy();
             enemiesCount ++;
             if (enemiesCount == enemiesNumber) {
-                Debug.Log("Level ended");
+                canSpawn = false;
             }
         }
+
+        if (!canSpawn && !triggeredEvent) {
+            triggeredEvent = true;
+            Invoke("Event",7f);
+        }
+    }
+
+    private void Event() {
+        GameObject.Find("PathDivider").GetComponent<PaddingToCorners>().enabled = true;
+        PlayerPrefs.SetInt("isOnEventState",1);
     }
 
     private void SpawnRandomEnemy() {

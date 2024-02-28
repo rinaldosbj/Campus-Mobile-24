@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwipeBat : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class SwipeBat : MonoBehaviour
     private float dragDistance;  //minimum distance for a swipe to be registered
     private float travelWidth;   //the distance the bat will travel
     private int batState = 1;   //0 = left, 1 = middle, 2 = right
+    [SerializeField] private string leftDecitionSceneName;
+    [SerializeField] private string rightDecitionSceneName;
+    private bool hasMoved = false; 
+    private bool chosePath = false; 
  
     void Start()
     {
@@ -22,7 +27,12 @@ public class SwipeBat : MonoBehaviour
  
     void Update()
     {
-        if (Input.touchCount == 1) // user is touching the screen with a single touch
+
+        if ((PlayerPrefs.GetInt("isOnEventState") == 1 && !hasMoved) || chosePath) {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            hasMoved = true;
+        }
+        else if (Input.touchCount == 1 && !chosePath) // user is touching the screen with a single touch
         {
             Touch touch = Input.GetTouch(0); // get the touch
             if (touch.phase == TouchPhase.Began) //check for the first touch
@@ -44,8 +54,13 @@ public class SwipeBat : MonoBehaviour
                  //check if the drag is vertical or horizontal
                     if (Mathf.Abs(lp.x - fp.x) > Mathf.Abs(lp.y - fp.y))
                     {   //If the horizontal movement is greater than the vertical movement...
-                        if ((lp.x > fp.x))  //If the movement was to the right)
+                        if ((lp.x > fp.x))
                         {   //Right swipe
+                            if (PlayerPrefs.GetInt("isOnEventState") == 1) {
+                                PlayerPrefs.SetInt("isOnEventState",0);
+                                chosePath = true;
+                                SceneManager.LoadScene(rightDecitionSceneName);
+                            }
                             if (batState < 2) {
                                 batState++;
                                 transform.position += new Vector3(travelWidth, 0, 0);
@@ -53,26 +68,20 @@ public class SwipeBat : MonoBehaviour
                         }
                         else
                         {   //Left swipe
+                            if (PlayerPrefs.GetInt("isOnEventState") == 1) {
+                                PlayerPrefs.SetInt("isOnEventState",0);
+                                chosePath = true;
+                                SceneManager.LoadScene(leftDecitionSceneName);
+                            }
                             if (batState > 0) {
                                 batState--;
                                 transform.position += new Vector3(-travelWidth, 0, 0);
                             }
                         }
                     }
-                    else
-                    {   //the vertical movement is greater than the horizontal movement
-                        if (lp.y > fp.y)  //If the movement was up
-                        {   //Up swipe
-                            Debug.Log("Up Swipe");
-                        }
-                        else
-                        {   //Down swipe
-                            Debug.Log("Down Swipe");
-                        }
-                    }
                 }
                 else
-                {   //It's a tap as the drag distance is less than 20% of the screen height
+                {
                     Debug.Log("Tap");
                 }
             }
