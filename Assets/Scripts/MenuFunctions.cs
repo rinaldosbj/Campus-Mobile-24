@@ -9,6 +9,7 @@ public class MenuFunctions : MonoBehaviour
     [SerializeField] private GameObject ConfigurationMenu;
 
     public void StartGame() {
+        PlayerPrefs.SetInt("isOnEventState", 0);
         SceneManager.LoadScene("Caverna");
     }
 
@@ -20,9 +21,5 @@ public class MenuFunctions : MonoBehaviour
     public void BackToMain() {
         MainMenu.SetActive(true);
         ConfigurationMenu.SetActive(false);
-    }
-
-    public void volume(float volume) {
-        PlayerPrefs.SetFloat("volume", volume);
     }
 }

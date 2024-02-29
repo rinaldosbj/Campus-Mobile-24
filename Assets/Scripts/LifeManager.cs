@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class LifeManager : MonoBehaviour
             lifeCount--;
         }
         if (lifeCount == 0) {
-            Debug.Log("MORCEGO MORREU");
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

@@ -9,7 +9,8 @@ public class BatController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             LifeManager.Instance.gotHit();
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Handheld.Vibrate();
         }
     }
 }

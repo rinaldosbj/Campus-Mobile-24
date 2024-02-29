@@ -12,7 +12,11 @@ public class PaddingToCorners : MonoBehaviour
     [SerializeField] private bool isRelatedToAnObject = false;
     [SerializeField] private GameObject relatedObject;
     private float timer = 0f;
-    private float timeInterval = 1;
+    [SerializeField] private float timeInterval = 1;
+    [SerializeField] private bool willMoveSlowly; 
+    [SerializeField] private float speed; 
+
+    private Vector3 desiredPosition;
 
     void Start() {
         timer = timeInterval;
@@ -25,7 +29,9 @@ public class PaddingToCorners : MonoBehaviour
         if (timer <= 0f) 
         {
             timer = timeInterval;
+            if (!willMoveSlowly) {
             Destroy(gameObject.GetComponent<PaddingToCorners>());
+            }
         }
     }
 
@@ -83,10 +89,27 @@ public class PaddingToCorners : MonoBehaviour
                 break;
         }
         if (changeRelativeTo == ChangeRelativeTo.Leading || changeRelativeTo == ChangeRelativeTo.Trailing) {
-        transform.position = new Vector3(positionX,transform.position.y,transform.position.z);
+            desiredPosition = new Vector3(positionX,transform.position.y,transform.position.z);
         }
         else {
-            transform.position = new Vector3(transform.position.x,positionY,transform.position.z);
+            desiredPosition = new Vector3(transform.position.x,positionY,transform.position.z);
+        }
+
+        if (willMoveSlowly) {
+            MoveTowardsTarget();
+        }
+        else {
+            transform.position = desiredPosition;
+        }
+    }
+
+    private void MoveTowardsTarget()
+    {
+        var step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, step);
+        if (transform.position == desiredPosition)
+        {
+            this.enabled = false;
         }
     }
 }

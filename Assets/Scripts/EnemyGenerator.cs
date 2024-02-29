@@ -17,7 +17,7 @@ public class EnemyGenerator : MonoBehaviour
         float aspect = (float)Screen.width / Screen.height;
         float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
 
-        PlayerPrefs.SetFloat("wolfSpeed",0.001f);
+        PlayerPrefs.SetFloat("wolfSpeed",0.08f);
 
         switch (difficultyLevel) {
             case 1:
@@ -28,11 +28,11 @@ public class EnemyGenerator : MonoBehaviour
                 break;
             case 3:
                 timeInterval = 2f + worldHeight/3;
-                PlayerPrefs.SetFloat("wolfSpeed",0.0015f);
+                PlayerPrefs.SetFloat("wolfSpeed",0.15f);
                 break;
             case 4:
                 timeInterval = worldHeight/3;
-                PlayerPrefs.SetFloat("wolfSpeed",0.002f);
+                PlayerPrefs.SetFloat("wolfSpeed",0.17f);
                 break;
         }
 
@@ -76,13 +76,16 @@ public class EnemyGenerator : MonoBehaviour
 
             List<Vector3> possibleSpawnLocations = new List<Vector3>();
 
-            possibleSpawnLocations.Add(new Vector3((worldWidth/6)*2,worldHeight*1.01f));
-            possibleSpawnLocations.Add(new Vector3(0,worldHeight*1.01f));
             possibleSpawnLocations.Add(new Vector3((worldWidth/6)*-2,worldHeight*1.01f));
+            possibleSpawnLocations.Add(new Vector3(0,worldHeight*1.01f));
+            possibleSpawnLocations.Add(new Vector3((worldWidth/6)*2,worldHeight*1.01f));
 
             int randomInt2 = random.Next(0,3);
             Vector3 randomLocation = possibleSpawnLocations[randomInt2];
             transform.position = randomLocation;
+
+            GameObject enemyBoy = enemies[randomInt];
+            enemyBoy.GetComponent<LoboBehavior>().intLocation = randomInt2;
 
             Instantiate(enemies[randomInt],transform.position, transform.rotation);
     }

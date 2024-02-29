@@ -25,17 +25,23 @@ public class AutoLayout : MonoBehaviour
         Vector3 size = theGameObject.GetComponent<Renderer>().bounds.size;
         Vector3 rescale = theGameObject.transform.localScale;
 
-        if (changeRelativeTo == ChangeRelativeTo.Y || changeRelativeTo == ChangeRelativeTo.Both) {
+        if (changeRelativeTo == ChangeRelativeTo.Y || changeRelativeTo == ChangeRelativeTo.Both)
+        {
             rescale.y = (worldHeight * rescale.y * screenProportionY) / size.y;
         }
-        if (changeRelativeTo == ChangeRelativeTo.X || changeRelativeTo == ChangeRelativeTo.Both) {
+        if (changeRelativeTo == ChangeRelativeTo.X || changeRelativeTo == ChangeRelativeTo.Both)
+        {
             rescale.x = (worldWidth * rescale.x * screenProportionX) / size.x;
         }
 
-        if (isSincronized && changeRelativeTo != ChangeRelativeTo.Both) {
-            if (changeRelativeTo == ChangeRelativeTo.Y) {
+        if (isSincronized && changeRelativeTo != ChangeRelativeTo.Both)
+        {
+            if (changeRelativeTo == ChangeRelativeTo.Y)
+            {
                 rescale.x = rescale.y;
-            } else {
+            }
+            else
+            {
                 rescale.y = rescale.x;
             }
         }
