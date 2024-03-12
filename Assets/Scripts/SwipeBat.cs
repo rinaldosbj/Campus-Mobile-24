@@ -14,6 +14,9 @@ public class SwipeBat : MonoBehaviour
     [SerializeField] private string rightDecitionSceneName;
     private bool hasMoved = false;
     private bool chosePath = false;
+    private bool canMove = true;
+    [SerializeField] private AudioSource audioSource;
+
 
     void Start()
     {
@@ -32,6 +35,9 @@ public class SwipeBat : MonoBehaviour
         {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
             hasMoved = true;
+            ToggleCanMove();
+            Invoke("ToggleCanMove", 5f);
+            audioSource.Play();
         }
         else if (Input.touchCount == 1 && !chosePath) // user is touching the screen with a single touch
         {
@@ -57,22 +63,10 @@ public class SwipeBat : MonoBehaviour
                     {   //If the horizontal movement is greater than the vertical movement...
                         if ((lp.x > fp.x))
                         {   //Right swipe
-                            if (PlayerPrefs.GetInt("isOnEventState") == 1)
-                            {
-                                PlayerPrefs.SetInt("isOnEventState", 0);
-                                chosePath = true;
-                                SceneManager.LoadScene(rightDecitionSceneName);
-                            }
                             goToTheRight();
                         }
                         else
                         {   //Left swipe
-                            if (PlayerPrefs.GetInt("isOnEventState") == 1)
-                            {
-                                PlayerPrefs.SetInt("isOnEventState", 0);
-                                chosePath = true;
-                                SceneManager.LoadScene(leftDecitionSceneName);
-                            }
                             goToTheLeft();
                         }
                     }
@@ -94,19 +88,41 @@ public class SwipeBat : MonoBehaviour
 
     private void goToTheRight()
     {
-        if (batState < 2)
+        if (canMove)
         {
-            batState++;
-            transform.position += new Vector3(travelWidth, 0, 0);
+            if (PlayerPrefs.GetInt("isOnEventState") == 1)
+            {
+                PlayerPrefs.SetInt("isOnEventState", 0);
+                chosePath = true;
+                SceneManager.LoadScene(rightDecitionSceneName);
+            }
+            if (batState < 2)
+            {
+                batState++;
+                transform.position += new Vector3(travelWidth, 0, 0);
+            }
         }
     }
 
     private void goToTheLeft()
     {
-        if (batState > 0)
+        if (canMove)
         {
-            batState--;
-            transform.position += new Vector3(-travelWidth, 0, 0);
+            if (PlayerPrefs.GetInt("isOnEventState") == 1)
+            {
+                PlayerPrefs.SetInt("isOnEventState", 0);
+                chosePath = true;
+                SceneManager.LoadScene(leftDecitionSceneName);
+            }
+            if (batState > 0)
+            {
+                batState--;
+                transform.position += new Vector3(-travelWidth, 0, 0);
+            }
         }
+    }
+
+    private void ToggleCanMove() {
+        canMove = !canMove;
     }
 }
