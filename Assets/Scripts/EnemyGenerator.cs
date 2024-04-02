@@ -25,18 +25,20 @@ public class EnemyGenerator : MonoBehaviour
         switch (difficultyLevel)
         {
             case 1:
-                timeInterval = 3f + worldHeight / 3;
+                timeInterval = 3f + worldHeight / 4;
+                PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
                 break;
             case 2:
-                timeInterval = 2f + worldHeight / 3;
+                timeInterval = 2f + worldHeight / 4;
+                PlayerPrefs.SetFloat("wolfSpeed", 3f);
                 break;
             case 3:
-                timeInterval = 2f + worldHeight / 3;
-                PlayerPrefs.SetFloat("wolfSpeed", 0.15f);
+                timeInterval = 1f + worldHeight / 4;
+                PlayerPrefs.SetFloat("wolfSpeed", 5f);
                 break;
             case 4:
-                timeInterval = worldHeight / 3;
-                PlayerPrefs.SetFloat("wolfSpeed", 0.17f);
+                timeInterval = worldHeight / 4;
+                PlayerPrefs.SetFloat("wolfSpeed", 7f);
                 break;
         }
 
@@ -67,14 +69,7 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     private void Event()
-    {
-        if (GameObject.Find("PathDivider") != null)
-        {
-            if (GameObject.Find("PathDivider").GetComponent<PaddingToCorners>() != null)
-            {
-                GameObject.Find("PathDivider").GetComponent<PaddingToCorners>().enabled = true;
-            }
-        }
+    { 
         if (isAWinningScene)
         {
             SceneManager.LoadScene("Win");

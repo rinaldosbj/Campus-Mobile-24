@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LoboBehavior : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class LoboBehavior : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        transform.position -= new Vector3(0, wolfSpeed, 0);
+        transform.position -= new Vector3(0, wolfSpeed, 0) * Time.deltaTime;
         if (transform.position.y < minY) {
             Destroy(gameObject);
         }
@@ -40,15 +41,12 @@ public class LoboBehavior : MonoBehaviour
         
         if (intLocation > GameObject.Find("Morcego").GetComponent<SwipeBat>().batState){
             audioSource.panStereo = 1;
-            Debug.Log("right");
         }
         else if (intLocation < GameObject.Find("Morcego").GetComponent<SwipeBat>().batState){
             audioSource.panStereo = -1;
-            Debug.Log("Left");
         }
         else {
             audioSource.panStereo = 0;
-            Debug.Log("middle");
         }
     }
 }
