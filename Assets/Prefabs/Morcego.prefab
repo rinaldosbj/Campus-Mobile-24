@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2679946035951362207}
   - component: {fileID: 7203241360661728366}
   - component: {fileID: 5232479863625260322}
-  - component: {fileID: 6198862516265855375}
   - component: {fileID: 3548295242119292209}
-  - component: {fileID: 8653882856010335430}
+  - component: {fileID: 6198862516265855375}
   - component: {fileID: 4158145919984470660}
+  - component: {fileID: 8653882856010335430}
   - component: {fileID: 5999613821250668252}
   m_Layer: 0
   m_Name: Morcego
@@ -157,18 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.46875, y: 1.03125}
   m_EdgeRadius: 0
---- !u!114 &6198862516265855375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6353566073630590719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 775edece7f2964633889d41300c2c144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &3548295242119292209
 Rigidbody2D:
   serializedVersion: 4
@@ -196,7 +184,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8653882856010335430
+--- !u!114 &6198862516265855375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,13 +193,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6353566073630590719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6c513d400c84d8c9cd76bd361a26ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 775edece7f2964633889d41300c2c144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenProportionX: 0.33
-  screenProportionY: 1
-  isSincronized: 1
-  changeRelativeTo: 1
+  hitClip: {fileID: 8300000, guid: f2a4a79f42b8844989e5e0339098f4e8, type: 3}
 --- !u!114 &4158145919984470660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +213,24 @@ MonoBehaviour:
   leftDecitionSceneName: Cabulosa
   rightDecitionSceneName: Radiante
   audioSource: {fileID: 0}
+  movedClip: {fileID: 8300000, guid: c6894095a9c844a258ff935f976d34fc, type: 3}
+  failedToMoveClip: {fileID: 8300000, guid: 2368909cc1f8d48b4b80b16317739987, type: 3}
+--- !u!114 &8653882856010335430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353566073630590719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6c513d400c84d8c9cd76bd361a26ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenProportionX: 0.33
+  screenProportionY: 1
+  isSincronized: 1
+  changeRelativeTo: 1
 --- !u!82 &5999613821250668252
 AudioSource:
   m_ObjectHideFlags: 0
