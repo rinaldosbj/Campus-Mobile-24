@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3548295242119292209}
   - component: {fileID: 6198862516265855375}
   - component: {fileID: 4158145919984470660}
+  - component: {fileID: 4454868799595673255}
   - component: {fileID: 8653882856010335430}
   - component: {fileID: 5999613821250668252}
   m_Layer: 0
@@ -212,9 +213,21 @@ MonoBehaviour:
   batState: 1
   leftDecitionSceneName: Cabulosa
   rightDecitionSceneName: Radiante
-  audioSource: {fileID: 0}
   movedClip: {fileID: 8300000, guid: c6894095a9c844a258ff935f976d34fc, type: 3}
   failedToMoveClip: {fileID: 8300000, guid: 2368909cc1f8d48b4b80b16317739987, type: 3}
+--- !u!114 &4454868799595673255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353566073630590719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890e84177d036478f840eaef82008d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: 19a0aceb669ce4f7cb1970294ea468c8, type: 3}
 --- !u!114 &8653882856010335430
 MonoBehaviour:
   m_ObjectHideFlags: 0

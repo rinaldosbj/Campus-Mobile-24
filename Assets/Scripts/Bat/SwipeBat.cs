@@ -18,6 +18,10 @@ public class SwipeBat : MonoBehaviour
     [SerializeField] private AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
 
+    // Double tap variables
+    private float lastTapTime = 0;
+    private float maxDoubleTapTime = 0.3f; // Maximum time between taps
+    private int tapCount = 0;
 
     void Start()
     {
@@ -31,7 +35,6 @@ public class SwipeBat : MonoBehaviour
 
     void Update()
     {
-
         if ((PlayerPrefs.GetInt("isOnEventState") == 1 && !hasMoved) || chosePath)
         {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
@@ -39,12 +42,26 @@ public class SwipeBat : MonoBehaviour
             ToggleCanMove();
             Invoke("ToggleCanMove", 5f);
         }
-
         else if (Input.touchCount == 1 && !chosePath) // user is touching the screen with a single touch
         {
             Touch touch = Input.GetTouch(0); // get the touch
+
             if (touch.phase == TouchPhase.Began) //check for the first touch
             {
+                // Double tap detection
+                if (Time.time - lastTapTime < maxDoubleTapTime && tapCount == 1)
+                {
+                    // Double tap confirmed
+                    OnDoubleTap();
+                    tapCount = 0; // Reset tap count after double tap action
+                }
+                else
+                {
+                    // First tap
+                    tapCount++;
+                }
+                
+                lastTapTime = Time.time;
                 fp = touch.position;
                 lp = touch.position;
             }
@@ -54,37 +71,51 @@ public class SwipeBat : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Ended) //check if the finger is removed from the screen
             {
-                lp = touch.position;  //last touch position. Ommitted if you use list
+                lp = touch.position;  //last touch position. Omitted if you use list
 
                 //Check if drag distance is greater than 20% of the screen height
                 if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
                 {//It's a drag
+                 // Reset tap count on drag
+                 tapCount = 0;
                  //check if the drag is vertical or horizontal
                     if (Mathf.Abs(lp.x - fp.x) > Mathf.Abs(lp.y - fp.y))
                     {   //If the horizontal movement is greater than the vertical movement...
-                        if ((lp.x > fp.x))
-                        {   //Right swipe
+                        if ((lp.x > fp.x)) {   //Right swipe
                             goToTheRight();
-                        }
-                        else
-                        {   //Left swipe
+                        } else {   //Left swipe
                             goToTheLeft();
                         }
                     }
                 }
                 else
                 {
-                    if (touch.position.x < Screen.width / 2)
+                    // Tap, not a drag
+                    if (tapCount == 1) // Only if single tap detected, decide based on position
                     {
-                        goToTheLeft();
-                    }
-                    else
-                    {
-                        goToTheRight();
+                        if (touch.position.x < Screen.width / 2)
+                        {
+                            goToTheLeft();
+                        }
+                        else
+                        {
+                            goToTheRight();
+                        }
                     }
                 }
             }
         }
+
+        if (tapCount == 1 && (Time.time - lastTapTime > maxDoubleTapTime))
+        {
+            // Timeout for double tap has passed, reset tap count
+            tapCount = 0;
+        }
+    }
+
+    private void OnDoubleTap()
+    {
+        GetComponent<BatBoosters>().ExplosionBooster();
     }
 
     private void goToTheRight()

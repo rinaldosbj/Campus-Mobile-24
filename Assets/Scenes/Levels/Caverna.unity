@@ -1057,6 +1057,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269098279149920676, guid: 53677a11c16954f2d81e136e66668956, type: 3}
+      propertyPath: willHaveBooster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6121975111299861621, guid: 53677a11c16954f2d81e136e66668956, type: 3}
       propertyPath: m_Name
       value: Main Camera
