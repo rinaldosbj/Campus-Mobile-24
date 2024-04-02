@@ -11,6 +11,7 @@ public class BatController : MonoBehaviour
             LifeManager.Instance.gotHit();
             GameObject.Find("Main Camera").GetComponent<CameraAnimations>().ShakeCamera();
             GetComponent<Animator>().SetTrigger("gotHit");
+            GetComponent<AudioSource>().Play();
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Handheld.Vibrate();
         }

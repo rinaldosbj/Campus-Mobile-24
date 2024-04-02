@@ -179,7 +179,7 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 1512633370}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 1
   speed: 0
 --- !u!114 &249070491
 MonoBehaviour:
@@ -408,7 +408,7 @@ MonoBehaviour:
   isRelatedToAnObject: 0
   relatedObject: {fileID: 0}
   timeInterval: 0.01
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
 --- !u!114 &1427248473
 MonoBehaviour:
@@ -568,7 +568,7 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 1427248471}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 1
   speed: 0
 --- !u!114 &1512633373
 MonoBehaviour:
@@ -766,7 +766,7 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 249070488}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 1
   speed: 0
 --- !u!114 &1965685545
 MonoBehaviour:
