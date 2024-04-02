@@ -9,6 +9,8 @@ public class BatController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             LifeManager.Instance.gotHit();
+            GameObject.Find("Main Camera").GetComponent<CameraAnimations>().ShakeCamera();
+            GetComponent<Animator>().SetTrigger("gotHit");
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Handheld.Vibrate();
         }
