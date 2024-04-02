@@ -6,6 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+    path: Assets/Scenes/Start.unity
+    guid: c9c0cee0544dd46768a11c77002deba5
+  - enabled: 1
+    path: Assets/Scenes/Caverna.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Cabulosa.unity
+    guid: 52824665b6ec94d73b77238c164ac750
+  - enabled: 1
+    path: Assets/Scenes/Radiante.unity
+    guid: fa0ad1d1b8aba4c2b8da0b2ffd412886
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 4b2fb98b6cac9408280759cdb2c0ae27
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 5a2dabdb3d47e49d5afaf14ff6f3c446
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: ecde2ee2e0b9e49f58ad9a442ea1fa42, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 64eeb8204a8be491cb4844b2da317c57, type: 2}
