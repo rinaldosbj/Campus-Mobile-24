@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dd7f8205c7540a6b28ed509f9d0420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLevel: 4
+  difficultyLevel: 3
   enemiesNumber: 6
   enemies:
   - {fileID: 4263822803715788358, guid: 44513011640d1485c97b6f11f7335fb3, type: 3}
