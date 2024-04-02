@@ -15,12 +15,18 @@ public class EnemyGenerator : MonoBehaviour
     private bool triggeredEvent = false;
     [SerializeField] private bool isAWinningScene;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         float aspect = (float)Screen.width / Screen.height;
         float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
 
         PlayerPrefs.SetFloat("wolfSpeed", 0.08f);
+
+        if (transform.Find("Audio Source") != null) {
+            audioSource = transform.Find("Audio Source").GetComponent<AudioSource>();
+        }
 
         switch (difficultyLevel)
         {
@@ -77,11 +83,15 @@ public class EnemyGenerator : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("isOnEventState", 1);
+            if (transform.Find("Audio Source") != null) {
+                audioSource.Play();
+            }
         }
     }
 
     private void SpawnRandomEnemy()
     {
+        Debug.Log("Spawning enemy");
         System.Random random = new System.Random();
         int randomInt = random.Next(0, enemies.Count);
 

@@ -15,7 +15,6 @@ public class SwipeBat : MonoBehaviour
     private bool hasMoved = false;
     private bool chosePath = false;
     private bool canMove = true;
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
 
@@ -39,8 +38,8 @@ public class SwipeBat : MonoBehaviour
             hasMoved = true;
             ToggleCanMove();
             Invoke("ToggleCanMove", 5f);
-            audioSource.Play(); // IT HAS TO CHANGE
         }
+
         else if (Input.touchCount == 1 && !chosePath) // user is touching the screen with a single touch
         {
             Touch touch = Input.GetTouch(0); // get the touch

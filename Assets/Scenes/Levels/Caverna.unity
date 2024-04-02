@@ -169,7 +169,8 @@ Transform:
   m_LocalPosition: {x: 3.569063, y: 3.188614, z: 0.04164859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 736814264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469351329
@@ -291,8 +292,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 1386543226}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!1 &682723811
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +307,6 @@ GameObject:
   - component: {fileID: 682723814}
   - component: {fileID: 682723813}
   - component: {fileID: 682723812}
-  - component: {fileID: 682723816}
   m_Layer: 0
   m_Name: caminhocruzada
   m_TagString: Untagged
@@ -330,8 +331,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 469351329}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 1
   speed: 0
+  MaxPosition: {x: 0, y: -1}
 --- !u!114 &682723813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,25 +417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &682723816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682723811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eee25dc61a844880bcb1863b15e9998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeRelativeTo: 2
-  padding: 0
-  isRelatedToAnObject: 0
-  relatedObject: {fileID: 0}
-  timeInterval: 1
-  willMoveSlowly: 1
-  speed: 1.5
 --- !u!1 &736814262
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,12 +538,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736814262}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2470181, y: 2.7038023, z: -0.07966172}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.816081, y: -0.48481154, z: -0.12131031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398914759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386543226
 GameObject:
@@ -681,8 +664,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 2093237787}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!1 &1431733591
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,8 +787,9 @@ MonoBehaviour:
   isRelatedToAnObject: 0
   relatedObject: {fileID: 0}
   timeInterval: 0.01
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &1431733596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,8 +918,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 1431733591}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &2093237790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,4 +1179,3 @@ SceneRoots:
   - {fileID: 2093237792}
   - {fileID: 1913621267}
   - {fileID: 682723815}
-  - {fileID: 736814264}
