@@ -91,7 +91,6 @@ public class EnemyGenerator : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
-        Debug.Log("Spawning enemy");
         System.Random random = new System.Random();
         int randomInt = random.Next(0, enemies.Count);
 
@@ -101,11 +100,27 @@ public class EnemyGenerator : MonoBehaviour
 
         List<Vector3> possibleSpawnLocations = new List<Vector3>();
 
+        int batState = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+
         possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
         possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
         possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
 
-        int randomInt2 = random.Next(0, 3);
+        switch (batState) {
+            case 0:
+                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
+                break;
+            case 1:
+                possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
+                break;
+            case 2:
+                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
+                break;
+            default:
+                break;
+        }
+
+        int randomInt2 = random.Next(0, 4);
         Vector3 randomLocation = possibleSpawnLocations[randomInt2];
         transform.position = randomLocation;
 
