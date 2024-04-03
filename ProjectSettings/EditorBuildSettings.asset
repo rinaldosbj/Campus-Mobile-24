@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: c9c0cee0544dd46768a11c77002deba5
   - enabled: 1
-    path: Assets/Scenes/Caverna.unity
+    path: Assets/Scenes/Levels/Caverna.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/Cabulosa.unity
+    path: Assets/Scenes/Levels/Cabulosa.unity
     guid: 52824665b6ec94d73b77238c164ac750
   - enabled: 1
-    path: Assets/Scenes/Radiante.unity
+    path: Assets/Scenes/Levels/Radiante.unity
     guid: fa0ad1d1b8aba4c2b8da0b2ffd412886
   - enabled: 1
     path: Assets/Scenes/GameOver.unity

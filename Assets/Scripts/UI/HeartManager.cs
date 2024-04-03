@@ -7,7 +7,7 @@ public class HeartManager : MonoBehaviour
     [SerializeField] private int heartEquivalent = 0;
     void Update()
     {
-        if (LifeManager.Instance.lifeCount >= heartEquivalent) {
+        if (PlayerPrefs.GetInt("lifeCount") >= heartEquivalent) {
             GetComponent<SpriteRenderer>().enabled = true;
         }
         else {

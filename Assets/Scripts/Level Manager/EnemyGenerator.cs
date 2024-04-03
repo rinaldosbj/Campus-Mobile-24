@@ -15,12 +15,18 @@ public class EnemyGenerator : MonoBehaviour
     private bool triggeredEvent = false;
     [SerializeField] private bool isAWinningScene;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         float aspect = (float)Screen.width / Screen.height;
         float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
 
         PlayerPrefs.SetFloat("wolfSpeed", 0.08f);
+
+        if (transform.Find("Audio Source") != null) {
+            audioSource = transform.Find("Audio Source").GetComponent<AudioSource>();
+        }
 
         switch (difficultyLevel)
         {
@@ -77,6 +83,9 @@ public class EnemyGenerator : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("isOnEventState", 1);
+            if (transform.Find("Audio Source") != null) {
+                audioSource.Play();
+            }
         }
     }
 
@@ -91,11 +100,27 @@ public class EnemyGenerator : MonoBehaviour
 
         List<Vector3> possibleSpawnLocations = new List<Vector3>();
 
+        int batState = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+
         possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
         possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
         possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
 
-        int randomInt2 = random.Next(0, 3);
+        switch (batState) {
+            case 0:
+                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
+                break;
+            case 1:
+                possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
+                break;
+            case 2:
+                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
+                break;
+            default:
+                break;
+        }
+
+        int randomInt2 = random.Next(0, 4);
         Vector3 randomLocation = possibleSpawnLocations[randomInt2];
         transform.position = randomLocation;
 

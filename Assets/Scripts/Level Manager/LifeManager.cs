@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour
 {
-    [SerializeField] public int lifeCount;
+    private int lifeCount;
     static public LifeManager Instance { get; private set; }
 
     private void Awake() 
@@ -15,16 +15,18 @@ public class LifeManager : MonoBehaviour
 
     private void Start()
     {
-        // lifeCount = PlayerPrefs.GetInt("lifeCount"); <- in the future
+        lifeCount = PlayerPrefs.GetInt("lifeCount");
     }
 
     public void AddLife() {
         lifeCount++;
+        PlayerPrefs.SetInt("lifeCount", lifeCount);
     }
 
     public void gotHit() {
         if (lifeCount > 0) {
             lifeCount--;
+            PlayerPrefs.SetInt("lifeCount", lifeCount);
         }
         if (lifeCount == 0) {
             SceneManager.LoadScene("GameOver");

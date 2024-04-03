@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,7 @@ public class MenuFunctions : MonoBehaviour
 
     public void StartGame() {
         PlayerPrefs.SetInt("isOnEventState", 0);
+        PlayerPrefs.SetInt("lifeCount", 3);
         SceneManager.LoadScene("Caverna");
     }
 
@@ -21,5 +23,9 @@ public class MenuFunctions : MonoBehaviour
     public void BackToMain() {
         MainMenu.SetActive(true);
         ConfigurationMenu.SetActive(false);
+    }
+
+    public void LoadMenuScene() {
+        SceneManager.LoadScene("Start");
     }
 }
