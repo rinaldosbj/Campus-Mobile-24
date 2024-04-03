@@ -236,8 +236,9 @@ MonoBehaviour:
   isRelatedToAnObject: 0
   relatedObject: {fileID: 0}
   timeInterval: 0.01
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &376676161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,56 +322,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &398914757
-GameObject:
+--- !u!1001 &751863327
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 398914759}
-  - component: {fileID: 398914758}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &398914758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398914757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96dd7f8205c7540a6b28ed509f9d0420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  difficultyLevel: 4
-  enemiesNumber: 7
-  enemies:
-  - {fileID: 1669156585814168864, guid: 4fd0ffb954ab446cf99488d32a604a13, type: 3}
-  - {fileID: 1669156585814168864, guid: 186d7f9205ac84b7595251eb4a33b9da, type: 3}
-  isAWinningScene: 1
---- !u!4 &398914759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398914757}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.569063, y: 3.188614, z: 0.04164859}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: enemiesNumber
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: difficultyLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: isAWinningScene
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1669156585814168864, guid: 4fd0ffb954ab446cf99488d32a604a13, type: 3}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1669156585814168864, guid: 186d7f9205ac84b7595251eb4a33b9da, type: 3}
+    - target: {fileID: 6591777386412856407, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.569063
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.188614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04164859
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048553046188159445, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
 --- !u!1 &880896165
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +459,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 2070294800}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &880896168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,8 +658,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 880896165}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &1591523815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,8 +800,9 @@ MonoBehaviour:
   isRelatedToAnObject: 1
   relatedObject: {fileID: 376676158}
   timeInterval: 1
-  willMoveSlowly: 0
+  willAlwaysClipToTheRelatedObject: 0
   speed: 0
+  MaxPosition: {x: 0, y: 0}
 --- !u!114 &2070294803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,7 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c480beeaf114e578e15538ab4224bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeCount: 3
 --- !u!4 &2106278651
 Transform:
   m_ObjectHideFlags: 0
@@ -903,7 +937,7 @@ SceneRoots:
   - {fileID: 252416779}
   - {fileID: 1522908110}
   - {fileID: 2106278651}
-  - {fileID: 398914759}
+  - {fileID: 751863327}
   - {fileID: 376676163}
   - {fileID: 2070294805}
   - {fileID: 880896170}

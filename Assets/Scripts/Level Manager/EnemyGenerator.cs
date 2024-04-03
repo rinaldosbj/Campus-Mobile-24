@@ -11,7 +11,9 @@ public class EnemyGenerator : MonoBehaviour
     private float timer = 0f;
     private float timeInterval;
     [SerializeField] private List<GameObject> enemies;
+    [SerializeField] private GameObject coin;
     private bool canSpawn = true;
+    private bool canSpawnCoin = true;
     private bool triggeredEvent = false;
     [SerializeField] private bool isAWinningScene;
 
@@ -59,12 +61,18 @@ public class EnemyGenerator : MonoBehaviour
         if (timer <= 0f && canSpawn)
         {
             timer = timeInterval;
+            canSpawnCoin = true;
             SpawnRandomEnemy();
             enemiesCount++;
             if (enemiesCount == enemiesNumber)
             {
                 canSpawn = false;
+                canSpawnCoin = false;
             }
+        }
+        else if (timer <= timeInterval/2 &&canSpawnCoin) {
+            canSpawnCoin = false;
+            SpawnCoin();
         }
 
         if (!canSpawn && !triggeredEvent)
@@ -89,6 +97,27 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
+    private void SpawnCoin() 
+    {
+        System.Random random = new System.Random();
+
+        float aspect = (float)Screen.width / Screen.height;
+        float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
+        float worldWidth = worldHeight * aspect;
+        List<Vector3> possibleSpawnLocations = new List<Vector3> {
+            new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f),
+            new Vector3(0, worldHeight * 1.01f),
+            new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f)
+        };
+
+        int randomInt = random.Next(0, 3);
+        Vector3 randomLocation = possibleSpawnLocations[randomInt];
+
+        if (random.Next(0, 4) == 0) {
+            Instantiate(coin, randomLocation, transform.rotation);
+        }
+    }
+
     private void SpawnRandomEnemy()
     {
         System.Random random = new System.Random();
@@ -98,13 +127,13 @@ public class EnemyGenerator : MonoBehaviour
         float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         float worldWidth = worldHeight * aspect;
 
-        List<Vector3> possibleSpawnLocations = new List<Vector3>();
+        List<Vector3> possibleSpawnLocations = new List<Vector3> {
+            new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f),
+            new Vector3(0, worldHeight * 1.01f),
+            new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f)
+        };
 
         int batState = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
-
-        possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
-        possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
-        possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
 
         switch (batState) {
             case 0:
@@ -122,11 +151,11 @@ public class EnemyGenerator : MonoBehaviour
 
         int randomInt2 = random.Next(0, 4);
         Vector3 randomLocation = possibleSpawnLocations[randomInt2];
+
         transform.position = randomLocation;
 
         GameObject enemyBoy = enemies[randomInt];
         enemyBoy.GetComponent<LoboBehavior>().intLocation = randomInt2;
-
-        Instantiate(enemies[randomInt], transform.position, transform.rotation);
+        Instantiate(enemyBoy, transform.position, transform.rotation);
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3989417746243025581}
   - component: {fileID: 2561974593667413119}
   m_Layer: 0
-  m_Name: Borboleta
+  m_Name: Coruja
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

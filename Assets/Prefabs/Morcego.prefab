@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitClip: {fileID: 8300000, guid: f2a4a79f42b8844989e5e0339098f4e8, type: 3}
+  picupCoinClip: {fileID: 8300000, guid: 383dad15d490a491e8972819b510c104, type: 3}
 --- !u!114 &4158145919984470660
 MonoBehaviour:
   m_ObjectHideFlags: 0
