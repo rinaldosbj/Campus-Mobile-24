@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Enemy
   - Treasure
+  - Tutorial
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tutorial
   - Water
   - UI
   - 
