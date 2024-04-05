@@ -11,7 +11,7 @@ public class MenuFunctions : MonoBehaviour
 
     public void StartGame() {
         PlayerPrefs.SetInt("isOnEventState", 0);
-        PlayerPrefs.SetInt("lifeCount", 3);
+        PlayerPrefs.SetInt("lifeCount", 4);
         PlayerPrefs.SetInt("coinCount", 0);
         SceneManager.LoadScene("Caverna");
     }

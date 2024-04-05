@@ -27,7 +27,6 @@ public class BatController : MonoBehaviour
             Handheld.Vibrate();
 
             PlayerPrefs.SetInt("coinCount", PlayerPrefs.GetInt("coinCount") + 1); // TEMPORARY
-            print(PlayerPrefs.GetInt("coinCount"));
         }
     }
 }
