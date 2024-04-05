@@ -8,6 +8,7 @@ public class SoundSettings : MonoBehaviour
 {
     [SerializeField] Slider soundSlider;
     [SerializeField] AudioMixer masterMixer;
+    private int SFXGamb = 0;
     private void Start()
     {
         SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 70));
@@ -18,7 +19,6 @@ public class SoundSettings : MonoBehaviour
         {
             _value = .001f;
         }
-
         Refreshslider(_value);
         PlayerPrefs.SetFloat("SavedMasterVolume", _value);
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(_value / 100) * 20f);
@@ -27,6 +27,12 @@ public class SoundSettings : MonoBehaviour
     public void SetVoLumeFromSlider()
     {
         SetVolume(soundSlider.value);
+
+        if (SFXGamb > 0) {
+        GameObject.Find("SFX").GetComponent<AudioSource>().Play();
+        }
+
+        SFXGamb++;
     }
 
     public void Refreshslider(float _value)

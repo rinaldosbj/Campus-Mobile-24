@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     private int batPosition;
     private int tutorialCount = 0;
     private int hasPowerUp = 0;
+    private int lifeCount = 0;
 
 
     private void Awake()
@@ -27,8 +28,12 @@ public class TutorialManager : MonoBehaviour
         {
             if (tutorialCount == 0)
             {
+                other.gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Tutorial");
+            }
+            else if (tutorialCount == 1)
+            {
                 EnteredTutorialState();
-                RockTutorial();
+                RockTutorial2();
                 other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
             else
@@ -53,7 +58,25 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void RockTutorial()
+    private void RockTutorial1()
+    {
+        TutorialText.text = "Liro: Ouch! Essa doeu, o que está acontecendo? Tenho que ficar atento!";
+        Time.timeScale = 1;
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource audio in audios)
+        {
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager"))
+            {
+                audio.Play();
+            }
+        }
+        
+        Invoke("ExitedTutorialState", 4f);
+        Invoke("SpawnRock", 2f);
+    }
+
+    private void RockTutorial2()
     {
         TutorialText.text = "Liro: Minha nossa, tem uma pedra vindo na minha direção, arraste para os lados para me ajudar desviar!";
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
@@ -81,7 +104,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (audio.gameObject.name != "SoundManager")
+            if (audio.gameObject.name != "SoundManager" || audio.gameObject.name == "Morcego")
             {
                 audio.Pause();
             }
@@ -96,7 +119,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager"))
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego"))
             {
                 audio.Play();
             }
@@ -114,6 +137,8 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
+
+        // Used Booster
         if (hasPowerUp != PlayerPrefs.GetInt("hasBooster"))
         {
             hasPowerUp = PlayerPrefs.GetInt("hasBooster");
@@ -125,7 +150,19 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        if (tutorialCount <= 2 || tutorialCount > 5)
+        // Took damage
+        if (lifeCount != PlayerPrefs.GetInt("lifeCount"))
+        {
+            if (lifeCount >= PlayerPrefs.GetInt("lifeCount"))
+            {
+                EnteredTutorialState();
+                RockTutorial1();
+            }
+            lifeCount = PlayerPrefs.GetInt("lifeCount");
+        }
+
+        // Moved
+        if (tutorialCount <= 3 || tutorialCount > 6)
         {
             if (batPosition != GameObject.Find("Morcego").GetComponent<SwipeBat>().batState)
             {
@@ -135,10 +172,10 @@ public class TutorialManager : MonoBehaviour
 
                 switch (tutorialCount)
                 {
-                    case 1:
+                    case 2:
                         Invoke("SpawnCoin", 2f);
                         break;
-                    case 2:
+                    case 3:
                         PlayerPrefs.SetInt("hasBooster", 1);
                         Invoke("SpawnRocks", 2f);
                         break;
@@ -158,6 +195,16 @@ public class TutorialManager : MonoBehaviour
         Vector3 postion = new Vector3(0, worldHeight * 1.01f);
 
         Instantiate(coin, postion, transform.rotation);
+    }
+
+    private void SpawnRock()
+    {
+        float aspect = (float)Screen.width / Screen.height;
+        float worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
+        float worldWidth = worldHeight * aspect;
+        Vector3 postion = new Vector3(0, worldHeight * 1.01f);
+
+        Instantiate(rock, postion, transform.rotation);
     }
 
     private void SpawnRocks()
