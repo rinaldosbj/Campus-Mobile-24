@@ -14,6 +14,8 @@ public class TutorialManager : MonoBehaviour
     private int hasPowerUp = 0;
     private int lifeCount = 0;
 
+    public AudioClip[] tutorialSounds;
+
 
     private void Awake()
     {
@@ -71,6 +73,9 @@ public class TutorialManager : MonoBehaviour
                 audio.Play();
             }
         }
+
+        GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[0];
+        GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
         
         Invoke("ExitedTutorialState", 4f);
         Invoke("SpawnRock", 2f);
@@ -80,18 +85,24 @@ public class TutorialManager : MonoBehaviour
     {
         TutorialText.text = "Liro: Minha nossa, tem uma pedra vindo na minha direção, arraste para os lados para me ajudar desviar!";
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
+        GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[1];
+        GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
     }
 
     private void CoinTutorial()
     {
         TutorialText.text = "Liro: Que barulho é esse? Parece que tem algo valioso por alí, me ajude a alcançar!";
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
+        GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[2];
+        GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
     }
 
     private void RocksTutorial()
     {
         TutorialText.text = "Liro: Minha nossa, não tenho para onde ir, tenho que usar os meus poderes, clique duas vezes na tela para me ajudar!";
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
+        GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[3];
+        GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
     }
 
 
@@ -147,6 +158,8 @@ public class TutorialManager : MonoBehaviour
                 TutorialText.text = "Liro: Parabéns! Vamos continuar essa aventura!";
                 tutorialCount++;
                 batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+                GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[4];
+                GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
             }
         }
 
