@@ -29,4 +29,8 @@ public class MenuFunctions : MonoBehaviour
     public void LoadMenuScene() {
         SceneManager.LoadScene("Start");
     }
+
+    public void LoadContextoScene() {
+        SceneManager.LoadScene("Contexto");
+    }
 }

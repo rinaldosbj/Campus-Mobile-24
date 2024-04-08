@@ -1403,6 +1403,12 @@ MonoBehaviour:
   coin: {fileID: 928920053917739567, guid: caf3965aed1f748ed8786257b2caaf4c, type: 3}
   rock: {fileID: 4263822803715788358, guid: 44513011640d1485c97b6f11f7335fb3, type: 3}
   TutorialText: {fileID: 1496955940}
+  tutorialSounds:
+  - {fileID: 8300000, guid: 1ab30b4546a8b473db804063c5c5dfbe, type: 3}
+  - {fileID: 8300000, guid: d77b7de99de7f480db09c27835ff82eb, type: 3}
+  - {fileID: 8300000, guid: ac1b4970f15234d75bdfdba390be2e4e, type: 3}
+  - {fileID: 8300000, guid: 5e1c1667fce8a47da9b98c4b91ea12a3, type: 3}
+  - {fileID: 8300000, guid: db17b4a74036a4cdda728ec23d007ad7, type: 3}
 --- !u!61 &1481159831
 BoxCollider2D:
   m_ObjectHideFlags: 0
