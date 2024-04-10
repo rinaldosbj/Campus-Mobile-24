@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public static DontDestroy instance;
-
-    void Awake()
+    public static DontDestroy shared;
+    public List<string> sceneList;
+    private void Awake()
     {
-        if (instance == null)
+        DontDestroyOnLoad(this);
+
+        if(shared == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            shared = this;
+            shared.sceneList = new List<string>();
         }
-        else if (instance != this)
+
+        if (shared.sceneList.Count == 0)
         {
+            shared.sceneList.Add($"{gameObject.name}");
+        }
+        else if (shared.sceneList.Contains($"{gameObject.name}"))
+        {
+            Debug.Log($"Destroyed Dontdestroy -> {gameObject.name}");
             Destroy(gameObject);
         }
+        else
+        {
+            shared.sceneList.Add($"{gameObject.name}");
+        }
+
     }
 }

@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour
         {
             if (tutorialCount == 0)
             {
+                print("entrou 1");
                 other.gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Tutorial");
             }
             else if (tutorialCount == 1)
