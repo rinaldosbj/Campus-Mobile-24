@@ -2126,8 +2126,8 @@ GameObject:
   - component: {fileID: 1062699691}
   - component: {fileID: 1062699690}
   - component: {fileID: 1062699689}
-  - component: {fileID: 1062699688}
   - component: {fileID: 1062699693}
+  - component: {fileID: 1062699694}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2135,18 +2135,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1062699688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062699687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e9af57cf2d345b5957d7fcd8e8284c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1062699689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2243,6 +2231,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 1247612196}
+--- !u!114 &1062699694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062699687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e9af57cf2d345b5957d7fcd8e8284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList: []
 --- !u!1 &1171638331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: 89f4a0ae7ea3fa84ea56c91291d7bd87, type: 3}
       propertyPath: m_EditorEnabledState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11475380, guid: 89f4a0ae7ea3fa84ea56c91291d7bd87, type: 3}
       propertyPath: m_DetectVoiceOverAtRuntime
@@ -3593,8 +3594,8 @@ GameObject:
   - component: {fileID: 1801999178}
   - component: {fileID: 1801999177}
   - component: {fileID: 1801999179}
-  - component: {fileID: 1801999180}
   - component: {fileID: 1801999181}
+  - component: {fileID: 1801999182}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -3727,18 +3728,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundSlider: {fileID: 313346886}
   masterMixer: {fileID: 24100000, guid: f73d06853d47f496890756839ab3f45e, type: 2}
---- !u!114 &1801999180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801999176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e9af57cf2d345b5957d7fcd8e8284c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1801999181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3752,6 +3741,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSlider: {fileID: 2035685156}
+--- !u!114 &1801999182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801999176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e9af57cf2d345b5957d7fcd8e8284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList: []
 --- !u!1 &1836607607
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,7 +4372,7 @@ MonoBehaviour:
   m_MinValue: 0.00001
   m_MaxValue: 60
   m_WholeNumbers: 0
-  m_Value: 0.68
+  m_Value: 40.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

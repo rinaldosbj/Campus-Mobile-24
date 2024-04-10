@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Crônicas de Liro.sln"
+    "dotnet.defaultSolution": "Cronicas-de-Liro.sln"
 }
