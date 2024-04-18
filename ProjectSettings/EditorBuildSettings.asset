@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Radiante.unity
     guid: fa0ad1d1b8aba4c2b8da0b2ffd412886
+  - enabled: 1
+    path: Assets/Scenes/Disclaimer.unity
+    guid: 84d188484c08a44578a0e596e3e4b412
   m_configObjects: {}
