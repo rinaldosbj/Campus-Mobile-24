@@ -31,21 +31,7 @@ public class EnemyGenerator : MonoBehaviour
         worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         worldWidth = worldHeight * aspect;
 
-        switch (difficultyLevel)
-        {
-            case 1:
-                timeInterval = 3f + worldHeight / 4;
-                break;
-            case 2:
-                timeInterval = 2f + worldHeight / 4;
-                break;
-            case 3:
-                timeInterval = 1f + worldHeight / 4;
-                break;
-            case 4:
-                timeInterval = worldHeight / 4;
-                break;
-        }
+        SetDifficulty();
 
         if (transform.Find("Audio Description") != null)
         {
@@ -78,7 +64,7 @@ public class EnemyGenerator : MonoBehaviour
         else if (timer <= timeInterval / 2 && canSpawnCoin && !isInTutorial)
         {
             canSpawnCoin = false;
-            SpawnCoin();
+            //SpawnCoin();
         }
 
         if (!canSpawn && !triggeredEvent)
@@ -109,16 +95,28 @@ public class EnemyGenerator : MonoBehaviour
         switch (difficultyLevel)
         {
             case 1:
+                timeInterval = 3f + worldHeight / 4;
                 PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
                 break;
             case 2:
+                timeInterval = 2f + worldHeight / 4;
                 PlayerPrefs.SetFloat("wolfSpeed", 3f);
                 break;
             case 3:
+                timeInterval = 1f + worldHeight / 4;
                 PlayerPrefs.SetFloat("wolfSpeed", 5f);
                 break;
             case 4:
+                timeInterval = worldHeight / 4;
                 PlayerPrefs.SetFloat("wolfSpeed", 7f);
+                break;
+            case 100:
+                PlayerPrefs.SetFloat("wolfSpeed", 7f);
+                timeInterval = 1.2f;
+                break;
+            case 999:
+                PlayerPrefs.SetFloat("wolfSpeed", 7f);
+                timeInterval = 0.5f;
                 break;
         }
     }
@@ -156,22 +154,11 @@ public class EnemyGenerator : MonoBehaviour
 
         int batState = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
 
-        switch (batState)
-        {
-            case 0:
-                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * -2, worldHeight * 1.01f));
-                break;
-            case 1:
-                possibleSpawnLocations.Add(new Vector3(0, worldHeight * 1.01f));
-                break;
-            case 2:
-                possibleSpawnLocations.Add(new Vector3((worldWidth / 6) * 2, worldHeight * 1.01f));
-                break;
-            default:
-                break;
-        }
-
         int randomInt2 = random.Next(0, 4);
+
+        if (randomInt2 == 3)
+            randomInt2 = batState;
+
         Vector3 randomLocation = possibleSpawnLocations[randomInt2];
 
         transform.position = randomLocation;

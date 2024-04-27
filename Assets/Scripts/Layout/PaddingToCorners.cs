@@ -30,7 +30,7 @@ public class PaddingToCorners : MonoBehaviour
         timer = timeInterval;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         resize();
         timer -= Time.deltaTime;

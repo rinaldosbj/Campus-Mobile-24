@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInTutorial: 0
-  difficultyLevel: 3
-  enemiesNumber: 6
+  difficultyLevel: 4
+  enemiesNumber: 20
   enemies: []
   coin: {fileID: 928920053917739567, guid: caf3965aed1f748ed8786257b2caaf4c, type: 3}
   isAWinningScene: 0
