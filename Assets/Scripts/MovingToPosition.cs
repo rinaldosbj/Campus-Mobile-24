@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingToPosition : MonoBehaviour
 {
     [SerializeField] private Vector2 position;
-    [SerializeField] private float speed = 0.1f;
+    [SerializeField] public float speed = 0.1f;
     private Vector3 targetPosition;
     [SerializeField] private bool willDestroyOnEnd;
     [SerializeField] private bool willMoveInDirection;

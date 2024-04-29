@@ -32,4 +32,8 @@ public class LifeManager : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
+
+    public int GetLifeCount() {
+        return lifeCount;
+    }
 }

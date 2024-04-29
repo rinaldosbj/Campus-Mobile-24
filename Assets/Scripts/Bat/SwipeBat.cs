@@ -93,21 +93,20 @@ public class SwipeBat : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    // Tap, not a drag
-                    if (tapCount == 1) // Only if single tap detected, decide based on position
-                    {
-                        if (touch.position.x < Screen.width / 2)
-                        {
-                            goToTheLeft();
-                        }
-                        else
-                        {
-                            goToTheRight();
-                        }
-                    }
-                }
+                // else // Tap to move
+                // {
+                //     if (tapCount == 1)
+                //     {
+                //         if (touch.position.x < Screen.width / 2)
+                //         {
+                //             goToTheLeft();
+                //         }
+                //         else
+                //         {
+                //             goToTheRight();
+                //         }
+                //     }
+                // }
             }
         }
 

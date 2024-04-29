@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TEST : MonoBehaviour
+public class DisclaimerTrigger : MonoBehaviour
 {
     void Update()
     {
@@ -12,7 +12,7 @@ public class TEST : MonoBehaviour
             PlayerPrefs.SetInt("hasSeenDisclaimer",1);
         }
         else if (PlayerPrefs.GetInt("hasSeenDisclaimer",0) != 0) {
-            Destroy(gameObject.GetComponent<TEST>());
+            Destroy(gameObject.GetComponent<DisclaimerTrigger>());
         }
     }
 }

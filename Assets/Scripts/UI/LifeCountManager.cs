@@ -15,6 +15,6 @@ public class LifeCountManager : MonoBehaviour
 
     void Update()
     {
-        lifeCountText.text = PlayerPrefs.GetInt("lifeCount").ToString();
+        lifeCountText.text = LifeManager.Instance.GetLifeCount().ToString();
     }
 }

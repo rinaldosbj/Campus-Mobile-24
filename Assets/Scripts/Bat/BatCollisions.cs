@@ -10,13 +10,20 @@ public class BatController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            LifeManager.Instance.gotHit();
             GameObject.Find("Main Camera").GetComponent<CameraAnimations>().ShakeCamera();
             GetComponent<Animator>().SetTrigger("gotHit");
             GetComponent<AudioSource>().clip = hitClip;
             GetComponent<AudioSource>().Play();
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Handheld.Vibrate();
+
+            if (UAP_AccessibilityManager.IsEnabled()) {
+                StartCoroutine(UnpauseAfterDelay(1f));
+                print("total de vidas: " + LifeManager.Instance.GetLifeCount());
+            }
+            else
+                StartCoroutine(UnpauseAfterDelay(0.1f));
+            Time.timeScale = 0f;
         }
 
         if (other.gameObject.tag == "Treasure")
@@ -28,5 +35,16 @@ public class BatController : MonoBehaviour
 
             PlayerPrefs.SetInt("coinCount", PlayerPrefs.GetInt("coinCount") + 1); // TEMPORARY
         }
+    }
+
+    IEnumerator UnpauseAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        UnpauseGame();
+        LifeManager.Instance.gotHit();
+    }
+
+    void UnpauseGame() {
+        Time.timeScale = 1f;
     }
 }
