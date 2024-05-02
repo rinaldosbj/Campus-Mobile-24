@@ -7,26 +7,35 @@ using UnityEngine.SceneManagement;
 public class EnemyGenerator : MonoBehaviour
 {
     public bool isInTutorial;
-    [SerializeField] private int difficultyLevel = 0;
-    [SerializeField] private int enemiesNumber;
+    [SerializeField] 
+    private int difficultyLevel = 0;
+    [SerializeField] 
+    private int enemiesNumber;
     private int enemiesCount = 0;
     private float timer = 0f;
     private float timeInterval;
-    [SerializeField] private List<GameObject> enemies;
-    [SerializeField] private GameObject coin;
+    [SerializeField] 
+    private List<GameObject> enemies;
+    [SerializeField] 
+    private GameObject coin;
     private bool canSpawn = true;
     private bool canSpawnCoin = true;
     private bool triggeredEvent = false;
-    [SerializeField] private bool isAWinningScene;
+    [SerializeField] 
+    public bool isAWinningScene;
 
     private AudioSource audioSource;
 
     private float aspect;
     private float worldHeight;
     private float worldWidth;
+    [HideInInspector]
+    public bool spawnedEveryEnemy;
+    public static EnemyGenerator instance;
 
     private void Start()
     {
+        EnemyGenerator.instance = this;
         aspect = (float)Screen.width / Screen.height;
         worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         worldWidth = worldHeight * aspect;
@@ -59,6 +68,8 @@ public class EnemyGenerator : MonoBehaviour
             {
                 canSpawn = false;
                 canSpawnCoin = false;
+                spawnedEveryEnemy = true;
+                Debug.Log("Spawned every enemy");
             }
         }
         else if (timer <= timeInterval / 2 && canSpawnCoin && !isInTutorial)
@@ -66,27 +77,22 @@ public class EnemyGenerator : MonoBehaviour
             canSpawnCoin = false;
             //SpawnCoin();
         }
-
-        if (!canSpawn && !triggeredEvent)
-        {
-            triggeredEvent = true;
-            Invoke("Event", 7f);
-        }
     }
 
-    private void Event()
+    public void Event()
     {
-        if (isAWinningScene)
-        {
-            SceneManager.LoadScene("Win");
-        }
-        else
-        {
             PlayerPrefs.SetInt("isOnEventState", 1);
             if (transform.Find("Audio Description") != null)
             {
                 audioSource.Play();
             }
+    }
+
+    public void CheckIfMustWin() {
+        Debug.Log("CheckIfMustWin");
+        if (isAWinningScene)
+        {
+            FadeController.CallScene("Win");
         }
     }
 

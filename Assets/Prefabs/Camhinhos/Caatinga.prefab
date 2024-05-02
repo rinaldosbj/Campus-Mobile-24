@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4684400948446708776}
   m_Layer: 0
   m_Name: Caatinga
-  m_TagString: Untagged
+  m_TagString: Chao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0}
-  speed: 1.5
+  speed: 2
   willDestroyOnEnd: 1
   willMoveInDirection: 1
   moveRelativeTo: 2

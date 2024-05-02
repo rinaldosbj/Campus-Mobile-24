@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+// using TextSpeech;
 using UnityEngine;
 
 public class BatController : MonoBehaviour
 {
     public AudioClip hitClip;
     public AudioClip picupCoinClip;
+
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -18,11 +21,13 @@ public class BatController : MonoBehaviour
             Handheld.Vibrate();
 
             if (UAP_AccessibilityManager.IsEnabled()) {
+                // falar quantas vidas tem
                 StartCoroutine(UnpauseAfterDelay(1f));
-                print("total de vidas: " + LifeManager.Instance.GetLifeCount());
             }
             else
-                StartCoroutine(UnpauseAfterDelay(0.1f));
+                StartCoroutine(UnpauseAfterDelay(0.07f));
+            
+            GetComponent<SwipeBat>().canSwipe = false;
             Time.timeScale = 0f;
         }
 
@@ -41,6 +46,7 @@ public class BatController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delay);
         UnpauseGame();
+        GetComponent<SwipeBat>().canSwipe = true;
         LifeManager.Instance.gotHit();
     }
 

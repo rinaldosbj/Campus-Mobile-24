@@ -15,6 +15,7 @@ public class SwipeBat : MonoBehaviour
     private bool hasMoved = false;
     private bool chosePath = false;
     private bool canMove = true;
+    [HideInInspector]
     public bool canSwipe = true;
     [SerializeField] private AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
@@ -130,7 +131,7 @@ public class SwipeBat : MonoBehaviour
             {
                 PlayerPrefs.SetInt("isOnEventState", 0);
                 chosePath = true;
-                SceneManager.LoadScene(rightDecisionSceneName);
+                FadeController.CallScene(rightDecisionSceneName);
             }
             if (batState < 2)
             {
@@ -153,7 +154,7 @@ public class SwipeBat : MonoBehaviour
             {
                 PlayerPrefs.SetInt("isOnEventState", 0);
                 chosePath = true;
-                SceneManager.LoadScene(leftDecisionSceneName);
+                FadeController.CallScene(leftDecisionSceneName);
             }
             if (batState > 0)
             {
