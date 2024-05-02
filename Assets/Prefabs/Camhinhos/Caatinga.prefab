@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5919311578427018315}
   - component: {fileID: 5054262947433233672}
   - component: {fileID: 4684400948446708776}
+  - component: {fileID: 5486229143572277199}
   m_Layer: 0
   m_Name: Caatinga
   m_TagString: Chao
@@ -121,3 +122,15 @@ MonoBehaviour:
   moveRelativeTo: 2
   isNegative: 1
   maxPosition: {x: 0, y: 0}
+--- !u!114 &5486229143572277199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8286430734685733377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1f1ca55840947c3802a0450cbbb29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

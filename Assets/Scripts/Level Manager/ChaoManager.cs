@@ -30,7 +30,7 @@ public class ChaoManager : MonoBehaviour
         {
             Vector3 previousTilePosition = previousTile().transform.position;
             Bounds previousTileBounds = previousTile().GetComponent<Renderer>().bounds;
-            Vector3 auxPosition = new Vector3(previousTilePosition.x, previousTileBounds.max.y + previousTileBounds.size.y / 2 - 0.06f, previousTilePosition.z);
+            Vector3 auxPosition = new Vector3(previousTilePosition.x, previousTileBounds.max.y + previousTileBounds.size.y / 2 - 0.055f, previousTilePosition.z);
             NameChao(groundTileAux);
             groundTileAux.GetComponent<MovingToPosition>().speed = speed;
             Instantiate(groundTileAux, auxPosition, Quaternion.identity);
@@ -112,7 +112,7 @@ public class ChaoManager : MonoBehaviour
         {
             Vector3 antepreviousTilePosition = antepreviousTile().transform.position;
             Bounds antepreviousTileBounds = antepreviousTile().GetComponent<Renderer>().bounds;
-            Vector3 auxPosition = new Vector3(antepreviousTilePosition.x, antepreviousTileBounds.max.y + antepreviousTileBounds.size.y/2 - 0.06f, antepreviousTilePosition.z);
+            Vector3 auxPosition = new Vector3(antepreviousTilePosition.x, antepreviousTileBounds.max.y + antepreviousTileBounds.size.y/2 - 0.055f, antepreviousTilePosition.z);
             previousTile().transform.position = auxPosition;
         }
     }
