@@ -71,6 +71,12 @@ public class ChaoManager : MonoBehaviour
         return GameObject.Find("Tile" + (currentGroundTile - 1) + "(Clone)");
     }
 
+    private GameObject antepreviousTile()
+    {
+        return GameObject.Find("Tile" + (currentGroundTile - 2) + "(Clone)");
+    }
+
+
 
     private GameObject exitTile()
     {
@@ -100,6 +106,17 @@ public class ChaoManager : MonoBehaviour
         }
     }
 
+    private void FixLastTilePosition()
+    {
+        if (antepreviousTile() != null)
+        {
+            Vector3 antepreviousTilePosition = antepreviousTile().transform.position;
+            Bounds antepreviousTileBounds = antepreviousTile().GetComponent<Renderer>().bounds;
+            Vector3 auxPosition = new Vector3(antepreviousTilePosition.x, antepreviousTileBounds.max.y + antepreviousTileBounds.size.y/2 - 0.06f, antepreviousTilePosition.z);
+            previousTile().transform.position = auxPosition;
+        }
+    }
+
     void Update()
     {
         if (CheckIfTopWillApearOnScreen(previousTile()) && mustSpawn)
@@ -113,8 +130,12 @@ public class ChaoManager : MonoBehaviour
                 invokedTile = true;
             }
             else
+            {
                 InvokeTile();
+            }
         }
+
+
 
         if (exitTile() != null)
         {
@@ -123,6 +144,7 @@ public class ChaoManager : MonoBehaviour
                 if (exitTileChild().GetComponent<Renderer>().bounds.max.y <= GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize)
                 {
                     exitTile().GetComponent<MovingToPosition>().speed = 0;
+                    updatedSpeed = true;
                     Time.timeScale = 1f;
                     Destroy(this);
                 }
@@ -133,7 +155,10 @@ public class ChaoManager : MonoBehaviour
         {
             UpdateEveryTileSpeed(speed * 2);
             enemyGenerator.CheckIfMustWin();
-            updatedSpeed = true;
         }
+    }
+
+    private void LateUpdate() {
+        FixLastTilePosition();
     }
 }
