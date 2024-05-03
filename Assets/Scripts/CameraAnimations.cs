@@ -22,10 +22,10 @@ public class CameraAnimations : MonoBehaviour
     }
 
     private void moveUp() {
-        LeanTween.moveY(container, worldHeight/30, 0.01f).setOnComplete(moveDown);
+        LeanTween.moveY(container, worldHeight/55, 0.01f).setOnComplete(moveDown);
     }
     private void moveDown() {
-        LeanTween.moveY(container,-worldHeight/30, 0.05f).setOnComplete(DefaultGamePosition);
+        LeanTween.moveY(container,-worldHeight/55, 0.05f).setOnComplete(DefaultGamePosition);
     }
 
     private void DefaultGamePosition() {

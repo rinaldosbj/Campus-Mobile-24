@@ -1199,7 +1199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: enemiesNumber
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: difficultyLevel
@@ -1280,11 +1280,11 @@ PrefabInstance:
       objectReference: {fileID: 736814263}
     - target: {fileID: 4158145919984470660, guid: 25510db47427d454cb89b481c21338e7, type: 3}
       propertyPath: leftDecisionSceneName
-      value: Cabulosa
+      value: Radiante
       objectReference: {fileID: 0}
     - target: {fileID: 4158145919984470660, guid: 25510db47427d454cb89b481c21338e7, type: 3}
       propertyPath: rightDecisionSceneName
-      value: Radiante
+      value: Cabulosa
       objectReference: {fileID: 0}
     - target: {fileID: 5716716598078937282, guid: 25510db47427d454cb89b481c21338e7, type: 3}
       propertyPath: m_LocalPosition.x
