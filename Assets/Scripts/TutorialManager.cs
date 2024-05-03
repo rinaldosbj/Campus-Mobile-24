@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
     private int lifeCount = 0;
 
     public AudioClip[] tutorialSounds;
+    private bool rockHittedTheSecondTime;
 
 
     private void Awake()
@@ -30,11 +31,11 @@ public class TutorialManager : MonoBehaviour
         {
             if (tutorialCount == 0)
             {
-                print("entrou 1");
                 other.gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Tutorial");
             }
             else if (tutorialCount == 1)
             {
+                rockHittedTheSecondTime = true;
                 EnteredTutorialState();
                 RockTutorial2();
                 other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -171,13 +172,15 @@ public class TutorialManager : MonoBehaviour
             {
                 EnteredTutorialState();
                 RockTutorial1();
+                GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
             }
             lifeCount = LifeManager.Instance.GetLifeCount();
         }
 
         // Moved
-        if (tutorialCount <= 3 || tutorialCount > 6)
+        if ((tutorialCount <= 3 || tutorialCount > 6) && rockHittedTheSecondTime)
         {
+            Debug.Log("entroooouuu");
             if (batPosition != GameObject.Find("Morcego").GetComponent<SwipeBat>().batState)
             {
                 batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
@@ -186,13 +189,13 @@ public class TutorialManager : MonoBehaviour
 
                 switch (tutorialCount)
                 {
-                    case 2:
-                        Invoke("SpawnCoin", 2f);
-                        break;
-                    case 3:
-                        PlayerPrefs.SetInt("hasBooster", 1);
-                        Invoke("SpawnRocks", 2f);
-                        break;
+                    // case 2:
+                    //     Invoke("SpawnCoin", 2f);
+                    //     break;
+                    // case 3:
+                    //     PlayerPrefs.SetInt("hasBooster", 1);
+                    //     Invoke("SpawnRocks", 2f);
+                    //     break;
                     default:
                         TutorialEnded();
                         break;
