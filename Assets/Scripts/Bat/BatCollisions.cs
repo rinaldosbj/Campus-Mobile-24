@@ -25,7 +25,7 @@ public class BatController : MonoBehaviour
                 StartCoroutine(UnpauseAfterDelay(1f));
             }
             else
-                StartCoroutine(UnpauseAfterDelay(0.07f));
+                StartCoroutine(UnpauseAfterDelay(0.035f));
             
             GetComponent<SwipeBat>().canSwipe = false;
             Time.timeScale = 0f;

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1013483359
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3ccbbaf5ce6294320a22a1e7a9849b3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b07bf1a9ee20f461e985b1ab49ba4166, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,18 +135,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.52469647}
+  m_Offset: {x: 0.5877466, y: -1.7236991}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 1.34375}
+    oldSize: {x: 14.75, y: 2.48}
     newSize: {x: 3, y: 1.34375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.393143}
+  m_Size: {x: 19.59796, y: 4.791148}
   m_EdgeRadius: 0
 --- !u!114 &3349775108269791827
 MonoBehaviour:
@@ -357,9 +357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeRelativeTo: 1
-  padding: 0
+  padding: -0.6
   isRelatedToAnObject: 1
-  relatedObject: {fileID: 7598512449489876468}
+  relatedObject: {fileID: 2705870113413819567}
   timeInterval: 1
   willAlwaysClipToTheRelatedObject: 0
   speed: 0
@@ -439,7 +439,7 @@ SpriteRenderer:
   m_SortingLayerID: 148050421
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: b62017d5db13947ddbb1f178354b7ad3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fec84fdb00cd49819ae5b119df2e741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeRelativeTo: 1
-  padding: 0
+  padding: -0.05
   isRelatedToAnObject: 1
   relatedObject: {fileID: 2705870113413819567}
   timeInterval: 1

@@ -133,7 +133,7 @@ public class SwipeBat : MonoBehaviour
                 chosePath = true;
                 FadeController.CallScene(rightDecisionSceneName);
             }
-            if (batState < 2)
+            else if (batState < 2)
             {
                 batState++;
                 transform.position += new Vector3(travelWidth, 0, 0);
@@ -156,7 +156,7 @@ public class SwipeBat : MonoBehaviour
                 chosePath = true;
                 FadeController.CallScene(leftDecisionSceneName);
             }
-            if (batState > 0)
+            else if (batState > 0)
             {
                 batState--;
                 transform.position += new Vector3(-travelWidth, 0, 0);

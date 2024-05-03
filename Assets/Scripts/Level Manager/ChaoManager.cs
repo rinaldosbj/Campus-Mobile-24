@@ -52,7 +52,7 @@ public class ChaoManager : MonoBehaviour
         {
             Vector3 previousTilePosition = previousTile().transform.position;
             Bounds previousTileBounds = previousTile().GetComponent<Renderer>().bounds;
-            Vector3 auxPosition = new Vector3(previousTilePosition.x, previousTileBounds.max.y, previousTilePosition.z);
+            Vector3 auxPosition = new Vector3(previousTilePosition.x, previousTileBounds.max.y - 0.06f, previousTilePosition.z);
             groundTileAux.GetComponent<MovingToPosition>().speed = speed;
             Instantiate(groundTileAux, auxPosition, Quaternion.identity);
         }
