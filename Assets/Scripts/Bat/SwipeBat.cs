@@ -15,6 +15,7 @@ public class SwipeBat : MonoBehaviour
     private bool hasMoved = false;
     private bool chosePath = false;
     private bool canMove = true;
+    [HideInInspector]
     public bool canSwipe = true;
     [SerializeField] private AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
@@ -93,21 +94,20 @@ public class SwipeBat : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    // Tap, not a drag
-                    if (tapCount == 1) // Only if single tap detected, decide based on position
-                    {
-                        if (touch.position.x < Screen.width / 2)
-                        {
-                            goToTheLeft();
-                        }
-                        else
-                        {
-                            goToTheRight();
-                        }
-                    }
-                }
+                // else // Tap to move
+                // {
+                //     if (tapCount == 1)
+                //     {
+                //         if (touch.position.x < Screen.width / 2)
+                //         {
+                //             goToTheLeft();
+                //         }
+                //         else
+                //         {
+                //             goToTheRight();
+                //         }
+                //     }
+                // }
             }
         }
 
@@ -131,7 +131,7 @@ public class SwipeBat : MonoBehaviour
             {
                 PlayerPrefs.SetInt("isOnEventState", 0);
                 chosePath = true;
-                SceneManager.LoadScene(rightDecisionSceneName);
+                FadeController.CallScene(rightDecisionSceneName);
             }
             if (batState < 2)
             {
@@ -154,7 +154,7 @@ public class SwipeBat : MonoBehaviour
             {
                 PlayerPrefs.SetInt("isOnEventState", 0);
                 chosePath = true;
-                SceneManager.LoadScene(leftDecisionSceneName);
+                FadeController.CallScene(leftDecisionSceneName);
             }
             if (batState > 0)
             {

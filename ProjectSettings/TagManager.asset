@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Treasure
   - Tutorial
+  - Exit
+  - Chao
   layers:
   - Default
   - TransparentFX

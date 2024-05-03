@@ -29,7 +29,11 @@ public class LifeManager : MonoBehaviour
             PlayerPrefs.SetInt("lifeCount", lifeCount);
         }
         if (lifeCount == 0) {
-            SceneManager.LoadScene("GameOver");
+            FadeController.CallScene("GameOver");
         }
+    }
+
+    public int GetLifeCount() {
+        return lifeCount;
     }
 }

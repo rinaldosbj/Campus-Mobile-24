@@ -165,14 +165,14 @@ public class TutorialManager : MonoBehaviour
         }
 
         // Took damage
-        if (lifeCount != PlayerPrefs.GetInt("lifeCount"))
+        if (lifeCount != LifeManager.Instance.GetLifeCount())
         {
-            if (lifeCount >= PlayerPrefs.GetInt("lifeCount"))
+            if (lifeCount >= LifeManager.Instance.GetLifeCount())
             {
                 EnteredTutorialState();
                 RockTutorial1();
             }
-            lifeCount = PlayerPrefs.GetInt("lifeCount");
+            lifeCount = LifeManager.Instance.GetLifeCount();
         }
 
         // Moved
