@@ -119,6 +119,7 @@ public class ChaoManager : MonoBehaviour
 
     void Update()
     {
+        if (previousTile() != null) {
         if (CheckIfTopWillApearOnScreen(previousTile()) && mustSpawn)
         {
             if (enemyGenerator.spawnedEveryEnemy && !enemyGenerator.isAWinningScene)
@@ -134,6 +135,7 @@ public class ChaoManager : MonoBehaviour
                 InvokeTile();
             }
         }
+        }
 
 
 
@@ -143,6 +145,7 @@ public class ChaoManager : MonoBehaviour
             {
                 if (exitTileChild().GetComponent<Renderer>().bounds.max.y <= GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize)
                 {
+                    Debug.Log("Entrou no pause do exit tile");
                     exitTile().GetComponent<MovingToPosition>().speed = 0;
                     updatedSpeed = true;
                     Time.timeScale = 1f;

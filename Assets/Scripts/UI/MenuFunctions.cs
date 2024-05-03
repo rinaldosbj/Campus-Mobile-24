@@ -10,6 +10,10 @@ public class MenuFunctions : MonoBehaviour
     [SerializeField] private GameObject ConfigurationMenu;
     [SerializeField] private bool mustPause;
 
+    private void Awake() {
+        UAP_AccessibilityManager.RegisterOnThreeFingerDoubleTapCallback(ToggleState);
+    }
+
     public void StartGame()
     {
         PlayerPrefs.SetInt("isOnEventState", 0);
@@ -44,6 +48,17 @@ public class MenuFunctions : MonoBehaviour
         }
     }
 
+    private void ToggleState() {
+        if (MainMenu != null && ConfigurationMenu != null) {
+            if (MainMenu.activeSelf == true) {
+                GoToConfiguration();
+            }
+            else {
+                BackToMain();
+            }
+        }
+    }
+
     public void LoadMenuScene()
     {
         FadeController.CallScene("Start");
@@ -53,6 +68,13 @@ public class MenuFunctions : MonoBehaviour
     {
         FadeController.CallScene("Contexto");
     }
+
+    public void LoadPaperScene()
+    {
+        FadeController.CallScene("Capitulos");
+    }
+
+
 
     private void PauseSounds() {
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
