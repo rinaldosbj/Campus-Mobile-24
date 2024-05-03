@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Radiante.unity
     guid: fa0ad1d1b8aba4c2b8da0b2ffd412886
   - enabled: 1
+    path: Assets/Scenes/MapaCabulosa.unity
+    guid: f4ee66111bef24e7c88489180727fe9f
+  - enabled: 1
+    path: Assets/Scenes/MapaRadiante.unity
+    guid: 266d65808925f4b1bb6a5d1f25b0ec84
+  - enabled: 1
     path: Assets/Scenes/Disclaimer.unity
     guid: 84d188484c08a44578a0e596e3e4b412
   - enabled: 1

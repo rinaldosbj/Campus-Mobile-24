@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: enemiesNumber
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: difficultyLevel
@@ -475,6 +475,10 @@ PrefabInstance:
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: isAWinningScene
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: winningSceneName
+      value: MapaRadiante
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: enemies.Array.size

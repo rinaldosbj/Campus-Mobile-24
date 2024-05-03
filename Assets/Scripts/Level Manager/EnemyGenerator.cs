@@ -31,6 +31,7 @@ public class EnemyGenerator : MonoBehaviour
     private float worldWidth;
     [HideInInspector]
     public bool spawnedEveryEnemy;
+    public string winningSceneName;
     public static EnemyGenerator instance;
 
     private void Start()
@@ -92,7 +93,7 @@ public class EnemyGenerator : MonoBehaviour
         Debug.Log("CheckIfMustWin");
         if (isAWinningScene)
         {
-            FadeController.CallScene("Win");
+            FadeController.CallScene(winningSceneName);
         }
     }
 

@@ -15,7 +15,6 @@ public class FadeController : MonoBehaviour
 
     public static void CallScene(string scene)
     {
-        Debug.Log($"Calling scene: {scene}");
         nextScene = scene;
         animator.SetTrigger("FadeOut");
     }
