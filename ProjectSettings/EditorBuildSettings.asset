@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Contexto.unity
     guid: e485aaf36bf1c4779888366ceb2320a9
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/EndLevel/GameOver.unity
     guid: 4b2fb98b6cac9408280759cdb2c0ae27
   - enabled: 1
-    path: Assets/Scenes/Win.unity
+    path: Assets/Scenes/EndLevel/Win.unity
     guid: 4672152c6269c4ed0bb26c41e66eefc0
   - enabled: 1
     path: Assets/Scenes/Levels/Cabulosa.unity
