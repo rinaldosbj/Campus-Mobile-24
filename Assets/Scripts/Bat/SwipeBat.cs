@@ -43,7 +43,6 @@ public class SwipeBat : MonoBehaviour
     {
         if ((PlayerPrefs.GetInt("isOnEventState") == 1 && !hasMoved) || chosePath)
         {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
             hasMoved = true;
             ToggleCanMove();
             Invoke("ToggleCanMove", 5f);
@@ -142,7 +141,7 @@ public class SwipeBat : MonoBehaviour
         else if (batState < 2)
         {
             batState++;
-            transform.position += new Vector3(travelWidth, 0, 0);
+            LeanTween.moveX(transform.gameObject, transform.position.x + travelWidth, 0.05f);
             MovedSucessfully();
         }
         else
@@ -167,7 +166,7 @@ public class SwipeBat : MonoBehaviour
         else if (batState > 0)
         {
             batState--;
-            transform.position += new Vector3(-travelWidth, 0, 0);
+            LeanTween.moveX(transform.gameObject, transform.position.x - travelWidth, 0.05f);
             MovedSucessfully();
         }
         else

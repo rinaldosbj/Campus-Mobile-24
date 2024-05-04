@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6c513d400c84d8c9cd76bd361a26ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenProportionX: 1.01
-  screenProportionY: 0.125
+  screenProportionX: 1.7
+  screenProportionY: 1
   isSincronized: 1
-  changeRelativeTo: 0
+  changeRelativeTo: 1
 --- !u!61 &6159250877248662227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -462,10 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6c513d400c84d8c9cd76bd361a26ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenProportionX: 1.01
-  screenProportionY: 0.125
+  screenProportionX: 1.7
+  screenProportionY: 1
   isSincronized: 1
-  changeRelativeTo: 0
+  changeRelativeTo: 1
 --- !u!114 &2045507783268718068
 MonoBehaviour:
   m_ObjectHideFlags: 0

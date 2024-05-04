@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f89116e1957f74ab485d68ac8c84e3fe
+guid: 6c95afb5f321b4cf3a571ee153dfaf9f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,106 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coruja@3x_0
+      name: Lobo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1370
-        height: 702
+        x: 2480
+        y: 30
+        width: 697
+        height: 1861
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94cc2b0a9810a432ea76f20cdf4cf301
-      internalID: 714909767
+      spriteID: 2941f83db41214419a198b74e4f83a91
+      internalID: -1009217286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coruja@3x_1
+      name: Lobo_1
       rect:
         serializedVersion: 2
-        x: 1523
-        y: 227
-        width: 1082
-        height: 380
+        x: 3855
+        y: 32
+        width: 716
+        height: 1859
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2af8f382be20c447db65f798713926de
-      internalID: -1385671369
+      spriteID: f480f0f956522403f88c1ca18d9eace9
+      internalID: -786262027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coruja@3x_3
+      name: Lobo_5
       rect:
         serializedVersion: 2
-        x: 2764
-        y: 0
-        width: 1061
-        height: 702
+        x: 5381
+        y: 27
+        width: 693
+        height: 1839
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c6fac2b3d6a4464b761412a6727444
-      internalID: -1573148306
+      spriteID: 5e9df42fa06bd482f835bf85b5eea56b
+      internalID: 747880187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coruja@3x_4
+      name: Lobo_16
       rect:
         serializedVersion: 2
-        x: 3993
-        y: 227
-        width: 1064
-        height: 380
+        x: 1086
+        y: 30
+        width: 703
+        height: 1739
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b3f80edb574f4f9ebf937ac8a8398d0
-      internalID: 576273857
+      spriteID: 4c73ae5925da34b9a9e83a218fab928a
+      internalID: -870560100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coruja@3x_6
+      name: Lobo_18
       rect:
         serializedVersion: 2
-        x: 5231
-        y: 0
-        width: 1355
-        height: 702
+        x: 6753
+        y: 30
+        width: 730
+        height: 1739
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e4ad952bff04b46964e955d569d3f2
-      internalID: 1136838564
+      spriteID: 64b15e660a44047a1a732c555304ad1e
+      internalID: -715073474
       vertices: []
       indices: 
       edges: []
@@ -238,31 +238,85 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      coruja@3x_0: 714909767
-      coruja@3x_1: -1385671369
-      coruja@3x_10: -988784913
-      coruja@3x_11: 1449397058
-      coruja@3x_12: 1264158148
-      coruja@3x_13: -1777983948
-      coruja@3x_14: -1059320189
-      coruja@3x_15: -432505881
-      coruja@3x_16: 820806291
-      coruja@3x_17: -1156426387
-      coruja@3x_18: -549345987
-      coruja@3x_19: 1076895886
-      coruja@3x_2: -1195921658
-      coruja@3x_20: -1464188650
-      coruja@3x_21: 479012633
-      coruja@3x_22: -945937711
-      coruja@3x_23: 1165114926
-      coruja@3x_24: 138795856
-      coruja@3x_3: -1573148306
-      coruja@3x_4: 576273857
-      coruja@3x_5: -1126358309
-      coruja@3x_6: 1136838564
-      coruja@3x_7: -1597924311
-      coruja@3x_8: 701631176
-      coruja@3x_9: -439767836
+      Lobo_0: -1009217286
+      Lobo_1: -786262027
+      Lobo_10: 1284965819
+      Lobo_11: -1680954975
+      Lobo_12: 45144726
+      Lobo_13: 1715945246
+      Lobo_14: -1907345479
+      Lobo_15: -1005951468
+      Lobo_16: -870560100
+      Lobo_17: 1287279345
+      Lobo_18: -715073474
+      Lobo_19: 845791918
+      Lobo_2: 502540680
+      Lobo_20: 325025673
+      Lobo_21: -1111974993
+      Lobo_22: -1128490238
+      Lobo_23: 1746708742
+      Lobo_24: -206349264
+      Lobo_25: 437086092
+      Lobo_26: 1440387987
+      Lobo_27: 1795095089
+      Lobo_28: 1267857969
+      Lobo_29: -324242964
+      Lobo_3: 1258951085
+      Lobo_30: -339050733
+      Lobo_31: -1238238570
+      Lobo_32: -38719545
+      Lobo_33: 1338041876
+      Lobo_34: -1922232560
+      Lobo_35: 1701658446
+      Lobo_36: -800575449
+      Lobo_37: -1221780745
+      Lobo_38: 833525673
+      Lobo_39: -368122035
+      Lobo_4: -1303008058
+      Lobo_40: 1789937525
+      Lobo_41: 536279410
+      Lobo_42: -676876746
+      Lobo_43: 2116351508
+      Lobo_44: 1720156815
+      Lobo_45: -1726576943
+      Lobo_46: -567973133
+      Lobo_47: -2032052626
+      Lobo_48: -1073153968
+      Lobo_49: -1582845305
+      Lobo_5: 747880187
+      Lobo_50: 1183036246
+      Lobo_51: 1190088062
+      Lobo_52: -189766644
+      Lobo_53: 1774594065
+      Lobo_54: 52656490
+      Lobo_55: 1598377961
+      Lobo_56: -583344931
+      Lobo_57: 257054614
+      Lobo_58: 985825044
+      Lobo_59: 1930889984
+      Lobo_6: 1231887741
+      Lobo_60: -1968298182
+      Lobo_61: 1225949558
+      Lobo_62: -1204623737
+      Lobo_63: 2036213350
+      Lobo_64: 982363327
+      Lobo_65: -1618046552
+      Lobo_66: 859254190
+      Lobo_67: 1908564245
+      Lobo_68: 1206245078
+      Lobo_69: 1762891592
+      Lobo_7: 383282603
+      Lobo_70: -1448570236
+      Lobo_71: 1757146169
+      Lobo_72: 315906804
+      Lobo_73: 1464899950
+      Lobo_74: -1649910939
+      Lobo_75: -1316161674
+      Lobo_76: -877961068
+      Lobo_77: -647327015
+      Lobo_78: -2024406974
+      Lobo_8: -1070533537
+      Lobo_9: 1250114007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

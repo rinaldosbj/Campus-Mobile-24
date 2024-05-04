@@ -8,6 +8,8 @@ public class ChoiceEventTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Debug.Log("Player entered the event trigger");
             EnemyGenerator.instance.Event();
+            LeanTween.moveX(other.gameObject, 0, 0.01f);
+            LeanTween.moveY(other.gameObject, 0, 2f);
         }
     }
 }
