@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: f21e225acf4464063a2b8e5bf6cfb53c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Coruja_2
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 258
+        width: 1823
+        height: 780
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84a99e4024cb46acaa4e733603bb035
+      internalID: 1430884632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coruja_5
+      rect:
+        serializedVersion: 2
+        x: 8068
+        y: 258
+        width: 1828
+        height: 780
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee2b97b3630c4116b3758f9fabdfe6f
+      internalID: -1565364554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coruja_9
+      rect:
+        serializedVersion: 2
+        x: 6455
+        y: 394
+        width: 1449
+        height: 572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee07e9594b08b46648f26a274b509d8a
+      internalID: 230261778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coruja_14
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 386
+        width: 1425
+        height: 523
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ebcd8aafda8444e966fcd2f8f42a02
+      internalID: -513755470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coruja_21
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 32
+        width: 1425
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c993d1d2233d420ea6002c1cb6a39c9
+      internalID: -1175500951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Coruja_0: -134826690
+      Coruja_1: 344055806
+      Coruja_10: -2096998401
+      Coruja_11: -451651694
+      Coruja_12: 1422133986
+      Coruja_13: 1063020358
+      Coruja_14: -513755470
+      Coruja_15: 2027758542
+      Coruja_16: 1881967968
+      Coruja_17: 1279117846
+      Coruja_18: 1797362522
+      Coruja_19: 122449078
+      Coruja_2: 1430884632
+      Coruja_20: 991266711
+      Coruja_21: -1175500951
+      Coruja_22: -1291666899
+      Coruja_23: 884314630
+      Coruja_24: -513640904
+      Coruja_25: 1453893029
+      Coruja_26: -1907553989
+      Coruja_27: 34720761
+      Coruja_28: -631025152
+      Coruja_29: 687544929
+      Coruja_3: -749431449
+      Coruja_30: -1552235963
+      Coruja_31: 1143682930
+      Coruja_32: 305039676
+      Coruja_33: 1463705117
+      Coruja_34: 727509793
+      Coruja_35: 1384656179
+      Coruja_36: -1482111626
+      Coruja_37: 1101410215
+      Coruja_38: -707891638
+      Coruja_39: 1445578657
+      Coruja_4: 783341244
+      Coruja_40: 1772331345
+      Coruja_41: 1526397109
+      Coruja_42: -1869585931
+      Coruja_43: 15914630
+      Coruja_44: 692517641
+      Coruja_45: 845466716
+      Coruja_46: -91908693
+      Coruja_47: -149584811
+      Coruja_48: -899070257
+      Coruja_49: -311619988
+      Coruja_5: -1565364554
+      Coruja_50: 4621276
+      Coruja_51: 905500229
+      Coruja_52: -61768499
+      Coruja_53: -1236428141
+      Coruja_54: 510631971
+      Coruja_55: -1495489471
+      Coruja_56: 1486634480
+      Coruja_57: -1146147233
+      Coruja_58: -266551063
+      Coruja_59: -123509509
+      Coruja_6: -601625711
+      Coruja_60: -1941184222
+      Coruja_61: -97004276
+      Coruja_62: -1657325376
+      Coruja_63: -1567488937
+      Coruja_64: -1665512382
+      Coruja_65: -1951667417
+      Coruja_66: 221158321
+      Coruja_67: -1328805808
+      Coruja_68: -571099110
+      Coruja_69: -1450357652
+      Coruja_7: -1799756649
+      Coruja_8: 1925016307
+      Coruja_9: 230261778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

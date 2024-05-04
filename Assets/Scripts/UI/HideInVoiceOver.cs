@@ -7,7 +7,7 @@ public class HideInVoiceOver : MonoBehaviour
 {
     void Update()
     {
-        if (UAP_AccessibilityManager.IsEnabled())
+        if (UAP_AccessibilityManager.IsEnabled() && PlayerPrefs.GetInt("MustHideInVoiceOver") == 1)
         {
             GetComponent<Image>().enabled = false;
             GetComponent<Button>().enabled = false;

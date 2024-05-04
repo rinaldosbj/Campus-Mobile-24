@@ -1360,7 +1360,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1768209869969002300}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: BackToMain
+        m_MethodName: LoadPaperScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,7 +5,8 @@ using UnityEngine.UIElements;
 
 public class LoboBehavior : MonoBehaviour
 {
-    private float wolfSpeed;
+    [HideInInspector]
+    public float wolfSpeed;
     private float minY;
     private AudioSource audioSource;
     public int intLocation = -1;
