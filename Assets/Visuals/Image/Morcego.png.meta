@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90198eff7417e41c1963cf317e92873b
+guid: 8b437a3c3d14f46d4a49ce8bf42b38be
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,106 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: morcego@3x_0
+      name: Morcego_0
       rect:
         serializedVersion: 2
-        x: 2903
-        y: 26
-        width: 875
-        height: 616
+        x: 3205
+        y: 140
+        width: 1238
+        height: 655
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ae98cc3e1da74818aca63d9715e322e
-      internalID: 1233335209
+      spriteID: 16853389fe46449719b51a4ac5c23925
+      internalID: 989261139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: morcego@3x_2
+      name: Morcego_1
       rect:
         serializedVersion: 2
-        x: 5449
+        x: 4903
+        y: 33
+        width: 1198
+        height: 859
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b07965e7e784745b1477871793d479
+      internalID: -1892213090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Morcego_6
+      rect:
+        serializedVersion: 2
+        x: 8323
         y: 0
-        width: 813
-        height: 651
+        width: 1098
+        height: 892
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 370e297f4bdde49a5b4106e2845c858d
-      internalID: 404970050
+      spriteID: b2e6d4c83e5ec4f4b921b58a24994f0b
+      internalID: -1955314855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: morcego@3x_7
+      name: Morcego_8
       rect:
         serializedVersion: 2
-        x: 1625
-        y: 91
-        width: 871
-        height: 460
+        x: 1044
+        y: 161
+        width: 1654
+        height: 603
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdd2a21bf412d463fb203960bd8d74b8
-      internalID: 1815549240
+      spriteID: c33f1a40efc134a4ab3304894beafa8a
+      internalID: 1899560580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: morcego@3x_9
+      name: Morcego_9
       rect:
         serializedVersion: 2
-        x: 4182
-        y: 91
-        width: 882
-        height: 460
+        x: 6617
+        y: 121
+        width: 1190
+        height: 643
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19950327e4db34bd78805b52c6783c24
-      internalID: 1843651548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: morcego@3x_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 124
-        width: 1229
-        height: 409
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a1d9fdc2bc304adaa700e729e319a3c
-      internalID: 1145981585
+      spriteID: dbea11c00b3c74f5ea1b9e53175bb47c
+      internalID: -443223666
       vertices: []
       indices: 
       edges: []
@@ -238,24 +238,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      morcego@3x_0: 1233335209
-      morcego@3x_1: -1041596037
-      morcego@3x_10: -743714241
-      morcego@3x_11: 1029740885
-      morcego@3x_12: 1145981585
-      morcego@3x_13: -1297393155
-      morcego@3x_14: 1205411651
-      morcego@3x_15: 1274578039
-      morcego@3x_16: 1996725338
-      morcego@3x_17: -861903329
-      morcego@3x_2: 404970050
-      morcego@3x_3: -621994832
-      morcego@3x_4: 1155222620
-      morcego@3x_5: 759467874
-      morcego@3x_6: -679465104
-      morcego@3x_7: 1815549240
-      morcego@3x_8: -930243226
-      morcego@3x_9: 1843651548
+      Morcego_0: 989261139
+      Morcego_1: -1892213090
+      Morcego_10: -1806544815
+      Morcego_11: 1041414567
+      Morcego_12: 2016739219
+      Morcego_13: -1621345289
+      Morcego_14: -1147088152
+      Morcego_15: 669980526
+      Morcego_16: 1020395159
+      Morcego_17: -166089572
+      Morcego_18: 687972486
+      Morcego_19: -599684267
+      Morcego_2: -626652539
+      Morcego_20: -965840217
+      Morcego_21: -278130456
+      Morcego_22: -560145092
+      Morcego_23: 1750400009
+      Morcego_24: 1770700149
+      Morcego_25: 1167407711
+      Morcego_26: -38150669
+      Morcego_27: -1160827140
+      Morcego_28: 1292664137
+      Morcego_29: 1436620486
+      Morcego_3: -266843668
+      Morcego_30: -1394769902
+      Morcego_31: 1945949214
+      Morcego_32: -195870217
+      Morcego_33: -512323154
+      Morcego_34: 1259864316
+      Morcego_35: -477317564
+      Morcego_36: -1846162725
+      Morcego_37: -2056864918
+      Morcego_38: -702464050
+      Morcego_39: 1814119690
+      Morcego_4: -1853834441
+      Morcego_40: -678790786
+      Morcego_41: -1151266043
+      Morcego_42: -1294663201
+      Morcego_43: 1523630987
+      Morcego_44: 427858582
+      Morcego_45: -1962228787
+      Morcego_46: -1680032465
+      Morcego_47: -622566600
+      Morcego_48: 2141947596
+      Morcego_49: -1959267290
+      Morcego_5: -1626208184
+      Morcego_6: -1955314855
+      Morcego_7: -269603759
+      Morcego_8: 1899560580
+      Morcego_9: -443223666
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
