@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Cronicas-de-Liro.sln"
+    "dotnet.defaultSolution": "Campus-Mobile-24.sln"
 }
