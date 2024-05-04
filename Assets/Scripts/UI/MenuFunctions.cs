@@ -61,6 +61,7 @@ public class MenuFunctions : MonoBehaviour
 
     public void LoadMenuScene()
     {
+        Time.timeScale = 1;
         FadeController.CallScene("Start");
     }
 
