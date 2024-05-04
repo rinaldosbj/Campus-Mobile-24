@@ -55,7 +55,6 @@ public class FollowThePath : MonoBehaviour
             && Math.Abs(transform.position.y) == Math.Abs(waypoints[waypointIndex].transform.position.y))
             {
                 waypointIndex += 1;
-                Debug.Log("aaaaaaaa");
             }
         }
     }

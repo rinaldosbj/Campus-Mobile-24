@@ -10,7 +10,10 @@ public class CameraZoom : MonoBehaviour
     private Vector3 velocity2;
     private float smoothTime = 0.25f;
 
-    [SerializeField] private Camera cam;
+    [SerializeField] 
+    private Camera cam;
+    [SerializeField] 
+    private float unfocusTime = 5.5f;
     private float camOrtographicSize = 1;
     private Vector2 vector2; 
     private float normalCamOrtographicSize = 1;
@@ -29,12 +32,27 @@ public class CameraZoom : MonoBehaviour
 
         Invoke("focusOnLiro", 2f);
         Invoke("changeMustMove", 2.2f);
-        Invoke("unfocus", 5.5f);
-        Invoke("callFinish", 7f);
+        Invoke("unfocus", unfocusTime);
+        Invoke("callFinish", unfocusTime + 1.5f);
     }
 
     private void callFinish() {
-        FadeController.CallScene(PlayerPrefs.GetString("NextScene"));
+        if (PlayerPrefs.GetString("NextScene") == "Win")
+            FadeController.CallScene("Win");
+        else
+            Debug.Log(PlayerPrefs.GetString("NextScene"));
+            showPopUp();
+    }
+
+    private void showPopUp() {
+        MenuFunctions menuFunctions = GameObject.Find("MenuManager").GetComponent<MenuFunctions>();
+        GameObject nextScenePopUp =  GameObject.Find("PopUp").transform.Find(PlayerPrefs.GetString("NextScene")).gameObject;
+        menuFunctions.ConfigurationMenu = nextScenePopUp;
+        menuFunctions.GoToConfiguration();
+    }
+
+    public void goToNextScene() {
+        FadeController.CallScene("Scenes/Levels/"+PlayerPrefs.GetString("NextScene"));
     }
 
     private void Update()

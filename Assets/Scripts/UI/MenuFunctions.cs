@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuFunctions : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenu;
-    [SerializeField] private GameObject ConfigurationMenu;
+    public GameObject ConfigurationMenu;
     [SerializeField] private bool mustPause;
 
     private void Awake() {
@@ -19,7 +19,8 @@ public class MenuFunctions : MonoBehaviour
         PlayerPrefs.SetInt("isOnEventState", 0);
         PlayerPrefs.SetInt("lifeCount", 400);
         PlayerPrefs.SetInt("coinCount", 0);
-        FadeController.CallScene("Caverna");
+        PlayerPrefs.SetString("NextScene", "Caverna");
+        FadeController.CallScene("Pre-Caverna");
     }
 
     public void GoToConfiguration()

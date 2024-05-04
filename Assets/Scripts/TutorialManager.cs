@@ -16,6 +16,7 @@ public class TutorialManager : MonoBehaviour
 
     public AudioClip[] tutorialSounds;
     private bool rockHittedTheSecondTime;
+    private bool mustEnd;
 
 
     private void Awake()
@@ -45,7 +46,7 @@ public class TutorialManager : MonoBehaviour
                 EnteredTutorialState();
                 RocksTutorial();
                 GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach(GameObject obj in objectsToDestroy)
+                foreach (GameObject obj in objectsToDestroy)
                 {
                     Destroy(obj.GetComponent<Rigidbody2D>());
                     Destroy(obj.GetComponent<LoboBehavior>());
@@ -78,7 +79,7 @@ public class TutorialManager : MonoBehaviour
 
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[0];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
-        
+
         Invoke("ExitedTutorialState", 4f);
         Invoke("SpawnRock", 2f);
     }
@@ -180,12 +181,12 @@ public class TutorialManager : MonoBehaviour
         // Moved
         if ((tutorialCount <= 3 || tutorialCount > 6) && rockHittedTheSecondTime)
         {
-            Debug.Log("entroooouuu");
             if (batPosition != GameObject.Find("Morcego").GetComponent<SwipeBat>().batState)
             {
                 batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
                 GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
                 ExitedTutorialState();
+
 
                 switch (tutorialCount)
                 {
@@ -197,11 +198,15 @@ public class TutorialManager : MonoBehaviour
                     //     Invoke("SpawnRocks", 2f);
                     //     break;
                     default:
-                        TutorialEnded();
+                        mustEnd = true;
                         break;
                 }
+
             }
         }
+
+        if (mustEnd && GameObject.FindAnyObjectByType<LoboBehavior>() == null)
+            TutorialEnded();
     }
 
     private void SpawnCoin()
