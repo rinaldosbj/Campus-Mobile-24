@@ -29,12 +29,12 @@ public class CameraZoom : MonoBehaviour
 
         Invoke("focusOnLiro", 2f);
         Invoke("changeMustMove", 2.2f);
-        Invoke("unfocus", 8f);
-        Invoke("callFinish", 9.5f);
+        Invoke("unfocus", 5.5f);
+        Invoke("callFinish", 7f);
     }
 
     private void callFinish() {
-        FadeController.CallScene("Win");
+        FadeController.CallScene(PlayerPrefs.GetString("NextScene"));
     }
 
     private void Update()

@@ -1279,6 +1279,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 736814263}
     - target: {fileID: 4158145919984470660, guid: 25510db47427d454cb89b481c21338e7, type: 3}
+      propertyPath: currentSceneName
+      value: Caverna
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158145919984470660, guid: 25510db47427d454cb89b481c21338e7, type: 3}
       propertyPath: leftDecisionSceneName
       value: Radiante
       objectReference: {fileID: 0}

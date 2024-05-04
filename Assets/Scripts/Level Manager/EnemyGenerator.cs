@@ -33,6 +33,7 @@ public class EnemyGenerator : MonoBehaviour
     public bool spawnedEveryEnemy;
     public string winningSceneName;
     public static EnemyGenerator instance;
+    private bool calledScene;
 
     private void Start()
     {
@@ -90,10 +91,13 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     public void CheckIfMustWin() {
-        Debug.Log("CheckIfMustWin");
-        if (isAWinningScene)
+        if (isAWinningScene && !calledScene)
         {
-            FadeController.CallScene(winningSceneName);
+            calledScene = true;
+            var currentScene = PlayerPrefs.GetString("NextScene");
+            Debug.Log("CheckIfMustWin"+currentScene);
+            FadeController.CallScene("Scenes/Mapa/"+currentScene);
+            PlayerPrefs.SetString("NextScene", "Win");
         }
     }
 

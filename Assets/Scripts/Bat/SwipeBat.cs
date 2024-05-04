@@ -10,8 +10,12 @@ public class SwipeBat : MonoBehaviour
     private float dragDistance;  // Minimum distance for a swipe to be registered
     private float travelWidth;   // The distance the bat will travel
     public int batState = 1;     // 0 = left, 1 = middle, 2 = right
-    [SerializeField] private string leftDecisionSceneName;
-    [SerializeField] private string rightDecisionSceneName;
+    [SerializeField]
+    private string currentSceneName;
+    [SerializeField]
+    private string leftDecisionSceneName;
+    [SerializeField]
+    private string rightDecisionSceneName;
     private bool hasMoved = false;
     private bool chosePath = false;
     private bool canMove = true;
@@ -125,47 +129,50 @@ public class SwipeBat : MonoBehaviour
 
     private void goToTheRight()
     {
-        if (canMove)
+        if (!canMove)
+            return;
+
+        if (PlayerPrefs.GetInt("isOnEventState") == 1)
         {
-            if (PlayerPrefs.GetInt("isOnEventState") == 1)
-            {
-                PlayerPrefs.SetInt("isOnEventState", 0);
-                chosePath = true;
-                FadeController.CallScene(rightDecisionSceneName);
-            }
-            else if (batState < 2)
-            {
-                batState++;
-                transform.position += new Vector3(travelWidth, 0, 0);
-                MovedSucessfully();
-            }
-            else
-            {
-                FailedToMove();
-            }
+            PlayerPrefs.SetInt("isOnEventState", 0);
+            chosePath = true;
+            PlayerPrefs.SetString("NextScene", rightDecisionSceneName);
+            FadeController.CallScene("Scenes/Mapa/" + currentSceneName);
         }
+        else if (batState < 2)
+        {
+            batState++;
+            transform.position += new Vector3(travelWidth, 0, 0);
+            MovedSucessfully();
+        }
+        else
+        {
+            FailedToMove();
+        }
+
     }
 
     private void goToTheLeft()
     {
-        if (canMove)
+        if (!canMove)
+            return;
+
+        if (PlayerPrefs.GetInt("isOnEventState") == 1)
         {
-            if (PlayerPrefs.GetInt("isOnEventState") == 1)
-            {
-                PlayerPrefs.SetInt("isOnEventState", 0);
-                chosePath = true;
-                FadeController.CallScene(leftDecisionSceneName);
-            }
-            else if (batState > 0)
-            {
-                batState--;
-                transform.position += new Vector3(-travelWidth, 0, 0);
-                MovedSucessfully();
-            }
-            else
-            {
-                FailedToMove();
-            }
+            PlayerPrefs.SetInt("isOnEventState", 0);
+            chosePath = true;
+            PlayerPrefs.SetString("NextScene", leftDecisionSceneName);
+            FadeController.CallScene("Scenes/Mapa/" + currentSceneName);
+        }
+        else if (batState > 0)
+        {
+            batState--;
+            transform.position += new Vector3(-travelWidth, 0, 0);
+            MovedSucessfully();
+        }
+        else
+        {
+            FailedToMove();
         }
     }
 
