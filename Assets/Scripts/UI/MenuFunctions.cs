@@ -14,7 +14,7 @@ public class MenuFunctions : MonoBehaviour
         UAP_AccessibilityManager.RegisterOnThreeFingerDoubleTapCallback(ToggleState);
     }
 
-    public void StartGame()
+    public static void StartGame()
     {
         PlayerPrefs.SetInt("isOnEventState", 0);
         PlayerPrefs.SetInt("lifeCount", 400);

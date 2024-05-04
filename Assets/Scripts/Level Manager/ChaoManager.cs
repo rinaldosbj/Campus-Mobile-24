@@ -16,9 +16,14 @@ public class ChaoManager : MonoBehaviour
     private bool invokedTile;
     private EnemyGenerator enemyGenerator;
     private bool updatedSpeed;
+    public bool isPaused;
+    public bool wasPaused;
+
+    public static ChaoManager Instance;
 
     void Start()
     {
+        Instance = this;
         enemyGenerator = GetComponent<EnemyGenerator>();
         InvokeTile();
     }
@@ -112,29 +117,56 @@ public class ChaoManager : MonoBehaviour
         {
             Vector3 antepreviousTilePosition = antepreviousTile().transform.position;
             Bounds antepreviousTileBounds = antepreviousTile().GetComponent<Renderer>().bounds;
-            Vector3 auxPosition = new Vector3(antepreviousTilePosition.x, antepreviousTileBounds.max.y + antepreviousTileBounds.size.y/2 - 0.055f, antepreviousTilePosition.z);
+            Vector3 auxPosition = new Vector3(antepreviousTilePosition.x, antepreviousTileBounds.max.y + antepreviousTileBounds.size.y / 2 - 0.055f, antepreviousTilePosition.z);
             previousTile().transform.position = auxPosition;
         }
     }
 
     void Update()
     {
-        if (previousTile() != null) {
-        if (CheckIfTopWillApearOnScreen(previousTile()) && mustSpawn)
+        if (isPaused)
         {
-            if (enemyGenerator.spawnedEveryEnemy && !enemyGenerator.isAWinningScene)
+            wasPaused = true;
+            MovingToPosition[] tiles = FindObjectsOfType<MovingToPosition>();
+            if (tiles.Length > 0)
             {
-                if (invokedTile)
-                    InvokeEndingTile();
-                else
-                    InvokeTile();
-                invokedTile = true;
+                foreach (MovingToPosition tile in tiles)
+                {
+                    tile.speed = 0;
+                }
             }
-            else
+            return;
+        }
+        else if (wasPaused)
+        {
+            wasPaused = false;
+            MovingToPosition[] tiles = FindObjectsOfType<MovingToPosition>();
+            if (tiles.Length > 0)
             {
-                InvokeTile();
+                foreach (MovingToPosition tile in tiles)
+                {
+                    tile.speed = speed;
+                }
             }
         }
+
+        if (previousTile() != null)
+        {
+            if (CheckIfTopWillApearOnScreen(previousTile()) && mustSpawn)
+            {
+                if (enemyGenerator.spawnedEveryEnemy && !enemyGenerator.isAWinningScene)
+                {
+                    if (invokedTile)
+                        InvokeEndingTile();
+                    else
+                        InvokeTile();
+                    invokedTile = true;
+                }
+                else
+                {
+                    InvokeTile();
+                }
+            }
         }
 
 
@@ -161,7 +193,8 @@ public class ChaoManager : MonoBehaviour
         }
     }
 
-    private void LateUpdate() {
+    private void LateUpdate()
+    {
         FixLastTilePosition();
     }
 }

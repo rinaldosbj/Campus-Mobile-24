@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private GameObject TutorialTextGroup;
-    [SerializeField] private GameObject coin;
-    [SerializeField] private GameObject rock;
-    [SerializeField] private TextMeshProUGUI TutorialText;
+    [SerializeField] 
+    private GameObject TutorialTextGroup;
+    [SerializeField] 
+    private GameObject coin;
+    [SerializeField] 
+    private GameObject rock;
+    [SerializeField] 
+    private TextMeshProUGUI TutorialText;
     private int batPosition;
     private int tutorialCount = 0;
     private int hasPowerUp = 0;
@@ -17,13 +21,21 @@ public class TutorialManager : MonoBehaviour
     public AudioClip[] tutorialSounds;
     private bool rockHittedTheSecondTime;
     private bool mustEnd;
+    private float previousRockSpeed;
+    public static TutorialManager Instance;
+
 
 
     private void Awake()
     {
+        Instance = this;
         PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
         batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+    }
+
+    public void Start() {
+        SpawnRocks();
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -37,36 +49,42 @@ public class TutorialManager : MonoBehaviour
             else if (tutorialCount == 1)
             {
                 rockHittedTheSecondTime = true;
-                EnteredTutorialState();
                 RockTutorial2();
+                EnteredTutorialState();
                 other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
-            else
-            {
-                EnteredTutorialState();
-                RocksTutorial();
-                GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (GameObject obj in objectsToDestroy)
-                {
-                    Destroy(obj.GetComponent<Rigidbody2D>());
-                    Destroy(obj.GetComponent<LoboBehavior>());
-                    Destroy(obj.GetComponent<BoxCollider2D>());
-                }
-            }
+        //     else
+        //     {
+        //         EnteredTutorialState();
+        //         RocksTutorial();
+        //         GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag("Enemy");
+        //         foreach (GameObject obj in objectsToDestroy)
+        //         {
+        //             Destroy(obj.GetComponent<Rigidbody2D>());
+        //             Destroy(obj.GetComponent<LoboBehavior>());
+        //             Destroy(obj.GetComponent<BoxCollider2D>());
+        //         }
+        //     }
         }
 
-        if (other.gameObject.tag == "Treasure")
-        {
-            EnteredTutorialState();
-            CoinTutorial();
-            other.gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Tutorial");
-        }
+        // if (other.gameObject.tag == "Treasure")
+        // {
+        //     EnteredTutorialState();
+        //     CoinTutorial();
+        //     other.gameObject.GetComponent<BoxCollider2D>().excludeLayers = LayerMask.GetMask("Tutorial");
+        // }
+    }
+
+    private void UpdateText(string text, bool mustReset = true) 
+    {
+        TutorialText.text = text;
+        if (mustReset)
+            TutorialText.gameObject.GetComponent<TMPEffect>().ResetEffect();
     }
 
     private void RockTutorial1()
     {
-        TutorialText.text = "Liro: Ouch! Essa doeu, o que está acontecendo? Tenho que ficar atento!";
-        Time.timeScale = 1;
+        UpdateText("Voz Misteriosa: Você foi atingido por uma pedra e a caverna está desmoronando. É hora de voar para longe!",false);
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
         foreach (AudioSource audio in audios)
@@ -80,21 +98,22 @@ public class TutorialManager : MonoBehaviour
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[0];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
 
-        Invoke("ExitedTutorialState", 4f);
+        // Invoke("ExitedTutorialState", 5f);
         Invoke("SpawnRock", 2f);
     }
 
     private void RockTutorial2()
     {
-        TutorialText.text = "Liro: Minha nossa, tem uma pedra vindo na minha direção, arraste para os lados para me ajudar desviar!";
+        UpdateText("Voz Misteriosa: Uma pedra grande está vindo em no centro, em sua direção! Desvie rapidamente para o lado direito para evitar um acidente.");
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[1];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
+
     }
 
     private void CoinTutorial()
     {
-        TutorialText.text = "Liro: Que barulho é esse? Parece que tem algo valioso por alí, me ajude a alcançar!";
+        UpdateText("Liro: Que barulho é esse? Parece que tem algo valioso por alí, me ajude a alcançar!");
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[2];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
@@ -102,23 +121,36 @@ public class TutorialManager : MonoBehaviour
 
     private void RocksTutorial()
     {
-        TutorialText.text = "Liro: Minha nossa, não tenho para onde ir, tenho que usar os meus poderes, clique duas vezes na tela para me ajudar!";
+        UpdateText("Liro: Minha nossa, não tenho para onde ir, tenho que usar os meus poderes, clique duas vezes na tela para me ajudar!");
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[3];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
     }
 
 
-    private void EnteredTutorialState()
+    private void EnteredTutorialState(bool mustPause = true)
     {
-        tutorialCount++;
-        Time.timeScale = 0;
-        AudioSource[] audios = FindObjectsOfType<AudioSource>();
         TutorialTextGroup.SetActive(true);
+        tutorialCount++;
+
+        if (!mustPause)
+            return;
+
+        ChaoManager.Instance.isPaused = true;
+        LoboBehavior[] enemies = FindObjectsOfType<LoboBehavior>();
+        if (enemies.Length > 0) {
+            previousRockSpeed = enemies[0].wolfSpeed;
+            foreach (LoboBehavior enemy in enemies) {
+                enemy.wolfSpeed = 0;
+            }
+        }
+        
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
+        
 
         foreach (AudioSource audio in audios)
         {
-            if (audio.gameObject.name != "SoundManager" || audio.gameObject.name == "Morcego")
+            if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego"))
             {
                 audio.Pause();
             }
@@ -127,15 +159,23 @@ public class TutorialManager : MonoBehaviour
 
     private void ExitedTutorialState()
     {
-        Time.timeScale = 1;
-        AudioSource[] audios = FindObjectsOfType<AudioSource>();
         TutorialTextGroup.SetActive(false);
+
+        ChaoManager.Instance.isPaused = false;
+        LoboBehavior[] enemies = FindObjectsOfType<LoboBehavior>();
+        if (enemies.Length > 0 && previousRockSpeed != 0) {
+            foreach (LoboBehavior enemy in enemies) {
+                enemy.wolfSpeed = previousRockSpeed;
+            }
+        }
+        AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
         foreach (AudioSource audio in audios)
         {
             if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego"))
             {
-                audio.Play();
+                if (audio.isPlaying == false)
+                    audio.Play();
             }
         }
     }
@@ -144,8 +184,8 @@ public class TutorialManager : MonoBehaviour
     {
         ExitedTutorialState();
         GameObject.Find("LevelManager").GetComponent<EnemyGenerator>().isInTutorial = false;
-        Destroy(gameObject);
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
+        Destroy(gameObject);
     }
 
     private void Update()
@@ -158,7 +198,7 @@ public class TutorialManager : MonoBehaviour
             hasPowerUp = PlayerPrefs.GetInt("hasBooster");
             if (hasPowerUp == 0)
             {
-                TutorialText.text = "Liro: Parabéns! Vamos continuar essa aventura!";
+                UpdateText("Liro: Parabéns! Vamos continuar essa aventura!");
                 tutorialCount++;
                 batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
                 GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[4];
@@ -171,7 +211,7 @@ public class TutorialManager : MonoBehaviour
         {
             if (lifeCount >= LifeManager.Instance.GetLifeCount())
             {
-                EnteredTutorialState();
+                EnteredTutorialState(false);
                 RockTutorial1();
                 GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
             }

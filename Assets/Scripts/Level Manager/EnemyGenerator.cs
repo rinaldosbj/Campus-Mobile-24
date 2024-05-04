@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +25,8 @@ public class EnemyGenerator : MonoBehaviour
     private bool triggeredEvent = false;
     [SerializeField] 
     public bool isAWinningScene;
-
+    [SerializeField]
+    private CutScene[] cutScenes;
     private AudioSource audioSource;
 
     private float aspect;
@@ -34,6 +37,9 @@ public class EnemyGenerator : MonoBehaviour
     public string winningSceneName;
     public static EnemyGenerator instance;
     private bool calledScene;
+    private int count; // temporary
+    private TextMeshProUGUI TutorialText;
+    private GameObject TutorialTextGroup;
 
     private void Start()
     {
@@ -41,6 +47,11 @@ public class EnemyGenerator : MonoBehaviour
         aspect = (float)Screen.width / Screen.height;
         worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         worldWidth = worldHeight * aspect;
+        
+        if (GameObject.Find("TutorialCanvas") != null) {
+            TutorialTextGroup = GameObject.Find("TutorialCanvas").gameObject.transform.Find("TutorialTextGroup").gameObject;
+            TutorialText = TutorialTextGroup.transform.Find("TutorialText").GetComponent<TextMeshProUGUI>();
+        }
 
         SetDifficulty();
 
@@ -79,15 +90,6 @@ public class EnemyGenerator : MonoBehaviour
             canSpawnCoin = false;
             //SpawnCoin();
         }
-    }
-
-    public void Event()
-    {
-            PlayerPrefs.SetInt("isOnEventState", 1);
-            if (transform.Find("Audio Description") != null)
-            {
-                audioSource.Play();
-            }
     }
 
     public void CheckIfMustWin() {
@@ -178,4 +180,50 @@ public class EnemyGenerator : MonoBehaviour
         enemyBoy.GetComponent<LoboBehavior>().intLocation = randomInt2;
         Instantiate(enemyBoy, transform.position, transform.rotation);
     }
+
+
+
+    public void Event()
+    {
+            PlayerPrefs.SetInt("isOnEventState", 1);
+            runChoseAWayAnimation();
+    }
+
+    private void runChoseAWayAnimation()  //GAMBS
+    {
+        TutorialTextGroup.SetActive(true);
+        GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
+        count = 0;
+        cyclicFunction();
+    }
+
+    private void cyclicFunction() {
+        if (count < cutScenes.Length) 
+        {
+            audioSource.clip = cutScenes[count].audioDescription;
+            audioSource.Play();
+            UpdateText(cutScenes[count].text);
+            Invoke("cyclicFunction",cutScenes[count].duration);
+            count++;
+        }
+        else
+        {
+            GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
+            TutorialTextGroup.SetActive(false);
+        }
+        
+    }
+
+    private void UpdateText(string text) 
+    {
+        TutorialText.text = text;
+        TutorialText.gameObject.GetComponent<TMPEffect>().ResetEffect();
+    }
+}
+
+[Serializable]
+public class CutScene {
+    public string text;
+    public float duration;
+    public AudioClip audioDescription;
 }
