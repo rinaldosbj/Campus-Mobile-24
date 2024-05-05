@@ -2465,8 +2465,8 @@ MonoBehaviour:
   m_Type: 1
   m_CustomHint: 1
   m_HintAsAudio: {fileID: 0}
-  m_Hint: "Arraste para o lado para ver ver a hist\xF3ria, toque duas vezes para
-    voltar"
+  m_Hint: "Arraste para o lado para ver onde o liro est\xE1 no mapa, toque duas vezes
+    para voltar"
   m_HintIsLocalizationKey: 0
   m_IsInsideScrollView: 0
   m_IsInitialized: 1

@@ -34,7 +34,8 @@ public class CameraZoom : MonoBehaviour
         Invoke("focusOnLiro", 2f);
         Invoke("changeMustMove", 2.2f);
         Invoke("unfocus", unfocusTime);
-        Invoke("callFinish", unfocusTime + 1.5f);
+        if (!UAP_AccessibilityManager.IsEnabled())
+            Invoke("callFinish", unfocusTime + 1.5f);
 
         if (GameObject.Find("PopUp") != null && GameObject.Find("MenuManager") != null)
         {
