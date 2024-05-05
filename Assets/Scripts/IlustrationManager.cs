@@ -43,11 +43,12 @@ public class IlustrationManager : MonoBehaviour
 
     public void GoToNextIlustration() 
     {
-        if (currentSprite + 1 < ilustrations.Length)
+        if (currentSprite + 1 < ilustrations.Length) {
             currentSprite++;
+            UpdateIlustration();
+        }
         else
             MenuFunctions.StartGame();
-        UpdateIlustration();
     }
 
     public void GoToPreviousIlustration() 

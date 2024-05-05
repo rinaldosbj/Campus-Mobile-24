@@ -104,7 +104,7 @@ public class TutorialManager : MonoBehaviour
 
     private void RockTutorial2()
     {
-        UpdateText("Voz Misteriosa: Uma pedra grande está vindo em no centro, em sua direção! Desvie rapidamente para o lado direito para evitar um acidente.");
+        UpdateText("Voz Misteriosa: Uma pedra está vindo pelo centro, em sua direção. Rápido! Deslize o dedo para a DIREITA para escapar");
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[1];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();

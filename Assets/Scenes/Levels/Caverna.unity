@@ -450,8 +450,8 @@ MonoBehaviour:
   rock: {fileID: 4263822803715788358, guid: 44513011640d1485c97b6f11f7335fb3, type: 3}
   TutorialText: {fileID: 151709156}
   tutorialSounds:
-  - {fileID: 8300000, guid: 1ab30b4546a8b473db804063c5c5dfbe, type: 3}
-  - {fileID: 8300000, guid: d77b7de99de7f480db09c27835ff82eb, type: 3}
+  - {fileID: 8300000, guid: f2ae8285ee64c44778c8d950fb72db98, type: 3}
+  - {fileID: 8300000, guid: 9f4dddce560d3480ca5a5fafb0b5a01a, type: 3}
   - {fileID: 8300000, guid: ac1b4970f15234d75bdfdba390be2e4e, type: 3}
   - {fileID: 8300000, guid: 5e1c1667fce8a47da9b98c4b91ea12a3, type: 3}
   - {fileID: 8300000, guid: db17b4a74036a4cdda728ec23d007ad7, type: 3}
@@ -722,6 +722,46 @@ PrefabInstance:
       propertyPath: referenceChooseAWayTile
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[1].text
+      value: "dan\xE7a"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[2].text
+      value: valiosa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[3].text
+      value: direita
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[1].intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[2].intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[3].intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[1].effectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[2].effectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: stringsToAnimate.Array.data[3].effectType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: isInTutorial
       value: 1
@@ -740,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: enemies.Array.data[0]
@@ -754,37 +794,50 @@ PrefabInstance:
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[1].text
       value: "Voz Misteriosa: A esquerda a Radiante, cheia de esperan\xE7a, onde
-        a vida floresce, numa eterna dan\xE7a. A direita a Cabulosa, sombria e misteriosa"
+        a vida floresce, numa eterna dan\xE7a."
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[2].text
-      value: "Voz Misteriosa: sem sol, nem chuva, mas tamb\xE9m valiosa. Liro reflete
-        sobre seu dever e destino. Qual caminho escolher\xE1, o nosso menino?"
+      value: "Voz Misteriosa: A direita a Cabulosa, sombria e misteriosa sem sol,
+        nem chuva, mas tamb\xE9m valiosa."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: cutScenes.Array.data[3].text
+      value: "Voz Misteriosa:  Liro reflete sobre seu dever e destino. Qual caminho
+        escolher\xE1, o nosso menino?"
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[0].duration
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[1].duration
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[2].duration
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: cutScenes.Array.data[3].duration
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[0].audioDescription
       value: 
-      objectReference: {fileID: 8300000, guid: e7053ad22a4cd46f9bee13c754083744, type: 3}
+      objectReference: {fileID: 8300000, guid: 0731557e7e4bf48e69fa59874b016d61, type: 3}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[1].audioDescription
       value: 
-      objectReference: {fileID: 8300000, guid: aab90ed6940f64951bf7498c57b6db8f, type: 3}
+      objectReference: {fileID: 8300000, guid: 6d8efdf9f6ea8439f87982f025d05714, type: 3}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: cutScenes.Array.data[2].audioDescription
       value: 
-      objectReference: {fileID: 8300000, guid: 19a0aceb669ce4f7cb1970294ea468c8, type: 3}
+      objectReference: {fileID: 8300000, guid: 9d07869b165684bd2baa8dd541de3a4e, type: 3}
+    - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
+      propertyPath: cutScenes.Array.data[3].audioDescription
+      value: 
+      objectReference: {fileID: 8300000, guid: 6018321bd9cbd4d7085910a9fc7bc4ba, type: 3}
     - target: {fileID: 6591777386412856407, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: m_Name
       value: LevelManager
