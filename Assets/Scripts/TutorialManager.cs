@@ -215,12 +215,7 @@ public class TutorialManager : MonoBehaviour
         {
             if (lifeCount >= LifeManager.Instance.GetLifeCount())
             {
-                if (UAP_AccessibilityManager.IsEnabled()) {
-                    Invoke("RockTutorial1",0.01f);
-                }
-                else {
-                    RockTutorial1();
-                }
+                Invoke("RockTutorial1",0.01f);
             }
             lifeCount = LifeManager.Instance.GetLifeCount();
         }
