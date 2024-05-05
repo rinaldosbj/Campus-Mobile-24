@@ -85,12 +85,14 @@ public class TutorialManager : MonoBehaviour
 
     private void RockTutorial1()
     {
+        EnteredTutorialState(false);
+        GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
         UpdateText("Voz Misteriosa: Você foi atingido por uma pedra e a caverna está desmoronando. É hora de voar para longe!",false);
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager"))
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "LifeManager"))
             {
                 audio.Play();
             }
@@ -151,7 +153,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego"))
+            if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
             {
                 audio.Pause();
             }
@@ -174,7 +176,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego"))
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
             {
                 if (audio.isPlaying == false)
                     audio.Play();
@@ -213,9 +215,12 @@ public class TutorialManager : MonoBehaviour
         {
             if (lifeCount >= LifeManager.Instance.GetLifeCount())
             {
-                EnteredTutorialState(false);
-                RockTutorial1();
-                GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
+                if (UAP_AccessibilityManager.IsEnabled()) {
+                    Invoke("RockTutorial1",0.01f);
+                }
+                else {
+                    RockTutorial1();
+                }
             }
             lifeCount = LifeManager.Instance.GetLifeCount();
         }

@@ -17,7 +17,7 @@ public class MenuFunctions : MonoBehaviour
     public static void StartGame()
     {
         PlayerPrefs.SetInt("isOnEventState", 0);
-        PlayerPrefs.SetInt("lifeCount", 400);
+        PlayerPrefs.SetInt("lifeCount", 4);
         PlayerPrefs.SetInt("coinCount", 0);
         PlayerPrefs.SetString("NextScene", "Caverna");
         FadeController.CallScene("Pre-Caverna");

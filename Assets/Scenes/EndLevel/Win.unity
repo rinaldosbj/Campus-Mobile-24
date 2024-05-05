@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PopUp: 0
   m_AllowExternalJoining: 0
-  m_AutoRead: 1
+  m_AutoRead: 0
   m_Priority: 0
   m_ContainerName: 
   m_IsLocalizationKey: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,18 @@ public class LifeManager : MonoBehaviour
 {
     private int lifeCount;
     static public LifeManager Instance { get; private set; }
+    [SerializeField]
+    private AudioSource descriptionSource;
+    [SerializeField]
+    private AudioSource hitSource;
+    [SerializeField]
+    private AudioWithInt[] audioHitDescription;
+    [SerializeField]
+    private AudioClip[] hitClips;
 
-    private void Awake() 
+
+
+    private void Awake()
     {
         Instance = this;
     }
@@ -18,22 +29,50 @@ public class LifeManager : MonoBehaviour
         lifeCount = PlayerPrefs.GetInt("lifeCount");
     }
 
-    public void AddLife() {
+    public void AddLife()
+    {
         lifeCount++;
         PlayerPrefs.SetInt("lifeCount", lifeCount);
     }
 
-    public void gotHit() {
-        if (lifeCount > 0) {
+    public void gotHit()
+    {
+        if (lifeCount > 0)
+        {
             lifeCount--;
             PlayerPrefs.SetInt("lifeCount", lifeCount);
+            if (UAP_AccessibilityManager.IsEnabled())
+                foreach (AudioWithInt audioWithInt in audioHitDescription)
+                {
+                    if (audioWithInt.number == lifeCount)
+                    {
+                        descriptionSource.clip = audioWithInt.audio;
+                        descriptionSource.Play();
+                    }
+                }
+            
+            if (hitClips.Length > 0) 
+            {
+                AudioClip randomClip = hitClips[UnityEngine.Random.Range(0, hitClips.Length)];
+                hitSource.clip = randomClip;
+                hitSource.Play();
+            }
         }
-        if (lifeCount == 0) {
+        if (lifeCount == 0)
+        {
             FadeController.CallScene("GameOver");
         }
     }
 
-    public int GetLifeCount() {
+    public int GetLifeCount()
+    {
         return lifeCount;
     }
+}
+
+[Serializable]
+public class AudioWithInt
+{
+    public int number;
+    public AudioClip audio;
 }
