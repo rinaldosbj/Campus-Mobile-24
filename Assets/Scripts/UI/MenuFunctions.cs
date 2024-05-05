@@ -49,7 +49,10 @@ public class MenuFunctions : MonoBehaviour
         }
     }
 
-    private void ToggleState() {
+    public void ToggleState() {
+        if (PlayerPrefs.GetInt("isOnTutorial") == 1)
+            return;
+
         if (MainMenu != null && ConfigurationMenu != null) {
             if (MainMenu.activeSelf == true) {
                 GoToConfiguration();
@@ -76,6 +79,15 @@ public class MenuFunctions : MonoBehaviour
         FadeController.CallScene("Capitulos");
     }
 
+    public void LoadMapaScene() 
+    {
+        Time.timeScale = 1;
+        var currentSceneName = "Scenes/Mapa/Pre-"+PlayerPrefs.GetString("NextScene");
+        if (PlayerPrefs.GetString("NextScene") != "Caverna")
+            currentSceneName = "Scenes/Mapa/Caverna"; // TEMPORARY
+            
+        FadeController.CallScene(currentSceneName);
+    }
 
 
     private void PauseSounds() {

@@ -508,6 +508,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 390187769206060942, guid: 0c537d72b00274f40a2aef8ec01864fa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5.0250244
+      objectReference: {fileID: 0}
     - target: {fileID: 6460248330198396621, guid: 0c537d72b00274f40a2aef8ec01864fa, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
@@ -722,53 +726,13 @@ PrefabInstance:
       propertyPath: referenceChooseAWayTile
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[1].text
-      value: "dan\xE7a"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[2].text
-      value: valiosa
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[3].text
-      value: direita
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[1].intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[2].intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[3].intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[1].effectType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[2].effectType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3967331732141328213, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
-      propertyPath: stringsToAnimate.Array.data[3].effectType
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: isInTutorial
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: enemiesNumber
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4003262573678083411, guid: 7ca4056a3f1fb463eb632549f293d70d, type: 3}
       propertyPath: difficultyLevel

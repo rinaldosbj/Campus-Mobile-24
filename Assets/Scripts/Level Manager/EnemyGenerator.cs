@@ -194,6 +194,7 @@ public class EnemyGenerator : MonoBehaviour
         TutorialTextGroup.SetActive(true);
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
         count = 0;
+        PlayerPrefs.SetInt("isOnTutorial",1);
         cyclicFunction();
     }
 
@@ -208,6 +209,7 @@ public class EnemyGenerator : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("isOnTutorial",0);
             GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
             TutorialTextGroup.SetActive(false);
         }

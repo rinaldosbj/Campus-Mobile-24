@@ -36,6 +36,7 @@ public class TutorialManager : MonoBehaviour
 
     public void Start() {
         SpawnRocks();
+        PlayerPrefs.SetInt("isOnTutorial",1);
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -98,7 +99,7 @@ public class TutorialManager : MonoBehaviour
         GameObject.Find("Morcego").GetComponent<AudioSource>().clip = tutorialSounds[0];
         GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
 
-        // Invoke("ExitedTutorialState", 5f);
+        Invoke("ExitedTutorialState", 5.6f);
         Invoke("SpawnRock", 2f);
     }
 
@@ -160,6 +161,7 @@ public class TutorialManager : MonoBehaviour
     private void ExitedTutorialState()
     {
         TutorialTextGroup.SetActive(false);
+        PlayerPrefs.SetInt("isOnTutorial",0);
 
         ChaoManager.Instance.isPaused = false;
         LoboBehavior[] enemies = FindObjectsOfType<LoboBehavior>();
