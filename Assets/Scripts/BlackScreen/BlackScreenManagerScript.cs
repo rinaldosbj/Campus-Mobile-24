@@ -4,11 +4,40 @@ using UnityEngine;
 
 public class BlackScreenManagerScript : MonoBehaviour
 {
-    public void ToggleBlackScreen() {
-        if (PlayerPrefs.GetInt("BlackScreenIsOn") == 1) {
-            PlayerPrefs.SetInt("BlackScreenIsOn", 0);
-        } else {
-            PlayerPrefs.SetInt("BlackScreenIsOn", 1);
+
+    [SerializeField]
+    private Sprite onImage;
+    [SerializeField]
+    private Sprite offImage;
+    private bool isOn;
+
+    [SerializeField]    
+    private string information;
+
+    void Start()
+    {
+        if (PlayerPrefs.GetInt(information) == 1) {
+            isOn = true;
         }
+    }
+
+    void UpdateUI() 
+    {
+        if (isOn)
+        {
+            // Mostrar On
+            GetComponent<Image>().sprite = onImage;
+        }
+        else
+        {
+            // Mostrar Off
+            GetComponent<Image>().sprite = offImage;
+        }
+    }
+
+    public void ToggleBlackScreen() {
+        isOn =!isOn;
+        PlayerPrefs.SetInt(information, isOn? 1 : 0);
+        UpdateUI();
     }
 }
