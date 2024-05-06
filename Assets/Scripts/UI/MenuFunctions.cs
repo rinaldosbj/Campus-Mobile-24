@@ -12,6 +12,11 @@ public class MenuFunctions : MonoBehaviour
 
     private void Awake() {
         UAP_AccessibilityManager.RegisterOnThreeFingerDoubleTapCallback(ToggleState);
+        if (PlayerPrefs.GetInt("AudioDescriptionIsOn",0) == 0 && PlayerPrefs.GetInt("enteredAQUI",0) == 0) {
+            Debug.Log("Entrooouuu");
+            PlayerPrefs.SetInt("AudioDescriptionIsOn",1);
+            PlayerPrefs.SetInt("enteredAQUI",1);
+        }
     }
 
     public static void StartGame()
@@ -66,9 +71,21 @@ public class MenuFunctions : MonoBehaviour
         FadeController.CallScene("Start");
     }
 
-    public void LoadContextoScene()
+    public void LoadContextoScene(bool isComingFoward)
     {
-        FadeController.CallScene("Contexto");
+        if (isComingFoward) {
+            if (PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled())
+            {
+                if (isComingFoward)
+                    StartGame();
+                else
+                    LoadPaperScene();
+            }
+            else 
+            {
+                FadeController.CallScene("Contexto");
+            }
+        }
     }
 
     public void LoadPaperScene()
