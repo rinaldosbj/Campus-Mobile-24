@@ -510,6 +510,7 @@ MonoBehaviour:
   enemies: []
   coin: {fileID: 928920053917739567, guid: caf3965aed1f748ed8786257b2caaf4c, type: 3}
   isAWinningScene: 0
+  cutScenes: []
   spawnedEveryEnemy: 0
   winningSceneName: 
 --- !u!114 &2467332323991266615

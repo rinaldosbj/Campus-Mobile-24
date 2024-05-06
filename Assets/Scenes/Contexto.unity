@@ -857,8 +857,7 @@ MonoBehaviour:
   m_Type: 1
   m_CustomHint: 1
   m_HintAsAudio: {fileID: 0}
-  m_Hint: "Arraste para o lado para ver ver a hist\xF3ria, toque duas vezes para
-    voltar"
+  m_Hint: "Arraste para o lado para ver a hist\xF3ria, toque duas vezes para voltar"
   m_HintIsLocalizationKey: 0
   m_IsInsideScrollView: 0
   m_IsInitialized: 1
@@ -911,7 +910,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1795959886}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: LoadMenuScene
+        m_MethodName: LoadPaperScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -995,21 +994,21 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: f92a6bee5fe9e450f9206653d4f772ce, type: 3}
     text: "No sert\xE3o de clima seco e ardente  Vivia um menino em estado dormente 
       Criado nas sombras, \xE9 o morcego da peste  Liro seu nome, filho do Nordeste "
-    audioClip: {fileID: 8300000, guid: e4e60a8d50c7c4c918cc9b891284cdf2, type: 3}
+    audioClip: {fileID: 8300000, guid: 9b8f4cafd8a27465da9cd1a0780f57ed, type: 3}
   - sprite: {fileID: 21300000, guid: 6830bf01bcba042cba5d9d8e71d608f6, type: 3}
     text: "Na caverna escura, seu lar solit\xE1rio  Dormia o vampiro, herdeiro lend\xE1rio 
       Mas veio os homi, e na frente o capataz  Devastaram a terra, com fogo voraz "
-    audioClip: {fileID: 8300000, guid: e4e60a8d50c7c4c918cc9b891284cdf2, type: 3}
+    audioClip: {fileID: 8300000, guid: 6a43befb307094a7e9029d6f1338c9c7, type: 3}
   - sprite: {fileID: 21300000, guid: 3d2a2d08c7ada4587924ce91b5bc3a03, type: 3}
     text: "\xC1rvores tombaram, os rios secaram  O ch\xE3o se rachou e os animais
       clamaram  Liro despertou em um grito arretado  Para proteger sua terra ele
       saiu apressado "
-    audioClip: {fileID: 8300000, guid: e4e60a8d50c7c4c918cc9b891284cdf2, type: 3}
+    audioClip: {fileID: 8300000, guid: 4c394f94840894d9c94ee4635f526652, type: 3}
   - sprite: {fileID: 21300000, guid: 44f960b13cbec4031ba418712f50f840, type: 3}
     text: "Em sua forma de morcego desviava ligeiro  De pedra, planta, bicho e rafeiro 
       Guardi\xE3o do sert\xE3o, vai longe o vampiro  Essa \xE9 a hist\xF3ria, do
       menino Liro"
-    audioClip: {fileID: 8300000, guid: e4e60a8d50c7c4c918cc9b891284cdf2, type: 3}
+    audioClip: {fileID: 8300000, guid: b3fd7c54048ab414a98b6e9a8de3e9e9, type: 3}
   previousButton: {fileID: 1309379396}
 --- !u!4 &617353600
 Transform:
@@ -1234,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 190, y: 149}
+  m_AnchoredPosition: {x: 190, y: 150}
   m_SizeDelta: {x: 335, y: 98.2113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803785013

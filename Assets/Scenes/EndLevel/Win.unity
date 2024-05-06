@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PopUp: 0
   m_AllowExternalJoining: 0
-  m_AutoRead: 1
+  m_AutoRead: 0
   m_Priority: 0
   m_ContainerName: 
   m_IsLocalizationKey: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_text: SAIR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
-  m_sharedMaterial: {fileID: 5492557573938219872, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
+  m_sharedMaterial: {fileID: -767327165760402156, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_text: "PR\xD3XIMA FASE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
-  m_sharedMaterial: {fileID: 5492557573938219872, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
+  m_sharedMaterial: {fileID: -767327165760402156, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1193,7 +1193,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1795959888}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: LoadPaperScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

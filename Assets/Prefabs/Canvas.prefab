@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 311}
-  m_SizeDelta: {x: 575.09, y: 575.09}
+  m_AnchoredPosition: {x: 0, y: 175}
+  m_SizeDelta: {x: 745.34, y: 869.9348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2185276713397188162
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 323c29696ca894149949aa5bdf572c40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f19a3303cd67456e96d92374bf057ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_text: CONTINUAR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
-  m_sharedMaterial: {fileID: 5492557573938219872, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
+  m_sharedMaterial: {fileID: -767327165760402156, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 97.8
+  m_fontSize: 97.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 2446585166664045594}
   - component: {fileID: 4322763229593756753}
   - component: {fileID: 2115088820765587814}
+  - component: {fileID: 3625506800522590025}
   m_Layer: 5
   m_Name: Pause Label
   m_TagString: Untagged
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pausa
+  m_text: Pause
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0e9ff6bb98a742a4a8f2b652813a30e, type: 2}
   m_sharedMaterial: {fileID: 8195033200050028208, guid: f0e9ff6bb98a742a4a8f2b652813a30e, type: 2}
@@ -418,6 +419,59 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3625506800522590025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637608256812531138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d52c398d6e508e428bb1c7d8f0083e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OnInteractionStart:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnInteractionEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnInteractionAbort:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ForceStartHere: 0
+  m_ManualPositionOrder: -1
+  m_ManualPositionParent: {fileID: 0}
+  m_UseTargetForOutline: 0
+  m_PositionOrder: 0
+  m_SecondaryOrder: 0
+  m_Pos: {x: 0, y: 0}
+  m_TextAsAudio: {fileID: 0}
+  m_Prefix: 
+  m_PrefixIsLocalizationKey: 0
+  m_PrefixIsPostFix: 0
+  m_FilterText: 1
+  m_Text: Pause
+  m_NameLabel: {fileID: 4637608256812531138}
+  m_AdditionalNameLabels: []
+  m_TestList: []
+  m_IsLocalizationKey: 0
+  m_TryToReadLabel: 1
+  m_ReferenceElement: {fileID: 0}
+  m_AllowVoiceOver: 1
+  m_ReadType: 1
+  m_WasJustAdded: 1
+  m_Type: 2
+  m_CustomHint: 0
+  m_HintAsAudio: {fileID: 0}
+  m_Hint: 
+  m_HintIsLocalizationKey: 0
+  m_IsInsideScrollView: 0
+  m_IsInitialized: 1
+  m_CallbackOnHighlight:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4673282708019111275
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,8 +506,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.8278198, y: 2.746338}
-  m_SizeDelta: {x: -227.9952, y: -239.6619}
+  m_AnchoredPosition: {x: 3.8895264, y: -10.382935}
+  m_SizeDelta: {x: -221.8719, y: -244.4888}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7302859475273553661
 CanvasRenderer:
@@ -476,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9098039, g: 0.9098039, b: 0.9098039, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -616,7 +670,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1768209869969002300}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: GoToConfiguration
+        m_MethodName: ToggleState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -713,8 +767,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279388378
+  m_fontColor: {r: 0.85490197, g: 0.28235295, b: 0.07058824, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -979,8 +1033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -754}
-  m_SizeDelta: {x: 800.1425, y: 227.6457}
+  m_AnchoredPosition: {x: 0, y: -774}
+  m_SizeDelta: {x: 651.0021, y: 203.3533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1326140545663352238
 CanvasRenderer:
@@ -1066,7 +1120,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1768209869969002300}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: LoadMenuScene
+        m_MethodName: LoadMapaScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1223,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b8ed8a1982c3745b6fb7dd1a6cce2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PopUp: 0
+  m_PopUp: 1
   m_AllowExternalJoining: 0
   m_AutoRead: 0
   m_Priority: 0
@@ -1273,8 +1327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -454}
-  m_SizeDelta: {x: 800.1425, y: 227.6457}
+  m_AnchoredPosition: {x: 0, y: -478}
+  m_SizeDelta: {x: 797.0175, y: 245.2767}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2852573169198863752
 CanvasRenderer:
@@ -1360,7 +1414,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1768209869969002300}
         m_TargetAssemblyTypeName: MenuFunctions, Assembly-CSharp
-        m_MethodName: LoadPaperScene
+        m_MethodName: ToggleState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1491,7 +1545,7 @@ MonoBehaviour:
   m_text: SAIR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
-  m_sharedMaterial: {fileID: 5492557573938219872, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
+  m_sharedMaterial: {fileID: -767327165760402156, guid: f6d1bb8b847bc4d429e1de76178ec93b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1551,7 +1605,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 53.814087, w: 0}
+  m_margin: {x: 0, y: 19.26532, z: 53.814087, w: 21.016754}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
