@@ -16,6 +16,7 @@ public class MenuFunctions : MonoBehaviour
             Debug.Log("Entrooouuu");
             PlayerPrefs.SetInt("AudioDescriptionIsOn",1);
             PlayerPrefs.SetInt("enteredAQUI",1);
+            FadeController.CallScene("UseOFone");
         }
     }
 
