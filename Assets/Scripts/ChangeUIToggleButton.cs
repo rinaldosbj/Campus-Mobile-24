@@ -13,18 +13,22 @@ public class ChangeUIToggleButton : MonoBehaviour
 
     [SerializeField]    
     private string information;
+    [SerializeField]
+    private bool mustCheckOnUpdate;
+
 
     void Start()
     {
-        if (PlayerPrefs.GetInt(information) == 1) {
-            isOn = true;
-        }
+        isOn = PlayerPrefs.GetInt(information) == 1 ? true : false;
+        UpdateUI();
     }
 
     public void ChangeUIToggle() 
     {
         isOn =!isOn;
         PlayerPrefs.SetInt(information, isOn? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt(information));
+        Debug.Log(isOn);
         UpdateUI();
     }
 
@@ -32,13 +36,21 @@ public class ChangeUIToggleButton : MonoBehaviour
     {
         if (isOn)
         {
-            // Mostrar On
-            GetComponent<Image>().sprite = onImage;
+            if (onImage != null)
+                GetComponent<Image>().sprite = onImage;
         }
         else
         {
-            // Mostrar Off
-            GetComponent<Image>().sprite = offImage;
+            if (offImage != null)
+                GetComponent<Image>().sprite = offImage;
+        }
+    }
+
+    void Update() {
+        if (mustCheckOnUpdate) 
+        {
+            isOn = PlayerPrefs.GetInt(information) == 1 ? true : false;
+            UpdateUI();
         }
     }
 }

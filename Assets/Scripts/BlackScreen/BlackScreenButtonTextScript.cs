@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class BlackScreenButtonTextScript : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI textMeshPro;
     void Update()
     {
         if (PlayerPrefs.GetInt("BlackScreenIsOn") == 1) {
-            GetComponent<TextMeshProUGUI>().text = "Ativar Tela";
+            textMeshPro.text = "Ativar Tela";
         }
         else {
-            GetComponent<TextMeshProUGUI>().text = "Desligar Tela";
+            textMeshPro.text = "Desligar Tela";
         }
     }
 }
