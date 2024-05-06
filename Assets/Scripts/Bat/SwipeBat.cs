@@ -21,7 +21,7 @@ public class SwipeBat : MonoBehaviour
     private bool canMove = true;
     [HideInInspector]
     public bool canSwipe = true;
-    [SerializeField] private AudioClip movedClip;
+    [SerializeField] public AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
 
     // Double tap variables

@@ -20,7 +20,7 @@ public class SoundTrack : MonoBehaviour
 
         Refreshslider(_value);
         PlayerPrefs.SetFloat("SoundVolume", _value);
-        GameObject.Find("SoundTrack").GetComponent<AudioSource>().volume = _value/100;
+        UpdateSoundTrack.Instance.UpdateSound();
     }
 
     public void SetVoLumeFromSlider()

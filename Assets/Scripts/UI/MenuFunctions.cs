@@ -27,6 +27,7 @@ public class MenuFunctions : MonoBehaviour
         PlayerPrefs.SetInt("coinCount", 0);
         PlayerPrefs.SetString("NextScene", "Caverna");
         FadeController.CallScene("Pre-Caverna");
+        UpdateSoundTrack.Instance.UnmuteAll();
     }
 
     public void GoToConfiguration()
@@ -73,10 +74,15 @@ public class MenuFunctions : MonoBehaviour
     {
         Time.timeScale = 1;
         FadeController.CallScene("Start");
+        UpdateSoundTrack.Instance.MuteAll();
+        UpdateSoundTrack.Instance.UnmuteByIndex(0);
     }
 
     public void LoadContextoScene(bool isComingFoward)
     {
+        UpdateSoundTrack.Instance.MuteAll();
+        UpdateSoundTrack.Instance.UnmuteByIndex(0);
+        UpdateSoundTrack.Instance.UnmuteByIndex(1);
         if (isComingFoward) {
             if (PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled())
             {
@@ -94,11 +100,16 @@ public class MenuFunctions : MonoBehaviour
 
     public void LoadPaperScene()
     {
+        UpdateSoundTrack.Instance.MuteAll();
+        UpdateSoundTrack.Instance.UnmuteByIndex(0);
         FadeController.CallScene("Capitulos");
     }
 
     public void LoadMapaScene() 
     {
+        UpdateSoundTrack.Instance.MuteAll();
+        UpdateSoundTrack.Instance.UnmuteByIndex(0);
+        UpdateSoundTrack.Instance.UnmuteByIndex(1);
         Time.timeScale = 1;
         var currentSceneName = "Scenes/Mapa/Pre-"+PlayerPrefs.GetString("NextScene");
         if (PlayerPrefs.GetString("NextScene") != "Caverna")
@@ -112,7 +123,7 @@ public class MenuFunctions : MonoBehaviour
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audio in audios)
             {
-                if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "Audio Description"))
+                if (!(audio.gameObject.name == "SoundTrack" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "Audio Description" || audio.gameObject.name == "LifeManager"))
                 {
                     audio.Pause();
                 }
@@ -123,7 +134,7 @@ public class MenuFunctions : MonoBehaviour
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
         foreach (AudioSource audio in audios)
             {
-                if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "Audio Description"))
+                if (!(audio.gameObject.name == "SoundTrack" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "Audio Description" || audio.gameObject.name == "LifeManager"))
                 {
                     audio.Play();
                 }
