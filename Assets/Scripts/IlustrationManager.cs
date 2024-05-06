@@ -31,19 +31,24 @@ public class IlustrationManager : MonoBehaviour
             return;
         textTMP.text = ilustrations[currentSprite].text;
         sprite.sprite = ilustrations[currentSprite].sprite;
-        audioSource.Stop();
-        audioSource.clip = ilustrations[currentSprite].audioClip;
-        audioSource.Play();
+        
+        if (PlayerPrefs.GetInt("AudioDescriptionIsOn") != 0)
+        {
+            audioSource.Stop();
+            audioSource.clip = ilustrations[currentSprite].audioClip;
+            audioSource.Play();
+        }
 
         if (currentSprite == 0)
             previousButton.SetActive(false);
-        else 
+        else
             previousButton.SetActive(true);
     }
 
-    public void GoToNextIlustration() 
+    public void GoToNextIlustration()
     {
-        if (currentSprite + 1 < ilustrations.Length) {
+        if (currentSprite + 1 < ilustrations.Length)
+        {
             currentSprite++;
             UpdateIlustration();
         }
@@ -51,7 +56,7 @@ public class IlustrationManager : MonoBehaviour
             MenuFunctions.StartGame();
     }
 
-    public void GoToPreviousIlustration() 
+    public void GoToPreviousIlustration()
     {
         if (currentSprite - 1 >= 0)
             currentSprite--;

@@ -26,17 +26,20 @@ public class TutorialManager : MonoBehaviour
 
 
 
-    private void Awake()
-    {
-        Instance = this;
-        PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
-        GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
-        batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
-    }
-
     public void Start() {
-        SpawnRocks();
-        PlayerPrefs.SetInt("isOnTutorial",1);
+        Instance = this;
+        if ((PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled()) || 
+        (PlayerPrefs.GetInt("TutorialIsOn") != 0 && !UAP_AccessibilityManager.IsEnabled())) {
+            TutorialEnded();
+        }
+        else 
+        {
+            SpawnRocks();
+            PlayerPrefs.SetInt("isOnTutorial",1);
+            PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
+            GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
+            batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

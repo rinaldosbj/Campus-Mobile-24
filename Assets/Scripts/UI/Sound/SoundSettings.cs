@@ -11,7 +11,7 @@ public class SoundSettings : MonoBehaviour
     private int SFXGamb = 0;
     private void Start()
     {
-        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 70));
+        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 75));
     }
     public void SetVolume(float _value)
     {
