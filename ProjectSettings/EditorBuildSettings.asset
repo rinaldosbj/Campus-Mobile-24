@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Capitulos.unity
     guid: cf8ac3a542f174cab92445c773d492ad
+  - enabled: 1
+    path: Assets/Scenes/UseOFone.unity
+    guid: 5a78728c4d06840089d4f501a725687a
   m_configObjects: {}

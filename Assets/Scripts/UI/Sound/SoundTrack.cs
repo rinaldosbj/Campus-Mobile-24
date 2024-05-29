@@ -8,7 +8,7 @@ public class SoundTrack : MonoBehaviour
     [SerializeField] Slider soundSlider;
     private void Start()
     {
-        SetVolume(PlayerPrefs.GetFloat("SoundVolume", 50));
+        SetVolume(PlayerPrefs.GetFloat("SoundVolume", 30));
     }
 
     public void SetVolume(float _value)
@@ -20,7 +20,7 @@ public class SoundTrack : MonoBehaviour
 
         Refreshslider(_value);
         PlayerPrefs.SetFloat("SoundVolume", _value);
-        GetComponent<AudioSource>().volume = _value/100;
+        UpdateSoundTrack.Instance.UpdateSound();
     }
 
     public void SetVoLumeFromSlider()

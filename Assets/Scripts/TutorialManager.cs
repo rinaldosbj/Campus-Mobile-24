@@ -26,17 +26,20 @@ public class TutorialManager : MonoBehaviour
 
 
 
-    private void Awake()
-    {
-        Instance = this;
-        PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
-        GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
-        batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
-    }
-
     public void Start() {
-        SpawnRocks();
-        PlayerPrefs.SetInt("isOnTutorial",1);
+        Instance = this;
+        if ((PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled()) || 
+        (PlayerPrefs.GetInt("TutorialIsOn") != 0 && !UAP_AccessibilityManager.IsEnabled())) {
+            TutorialEnded();
+        }
+        else 
+        {
+            SpawnRocks();
+            PlayerPrefs.SetInt("isOnTutorial",1);
+            PlayerPrefs.SetFloat("wolfSpeed", 1.75f);
+            GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
+            batPosition = GameObject.Find("Morcego").GetComponent<SwipeBat>().batState;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -92,7 +95,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "LifeManager"))
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundTrack" || audio.gameObject.name == "LifeManager"))
             {
                 audio.Play();
             }
@@ -153,7 +156,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
+            if (!(audio.gameObject.name == "SoundTrack" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
             {
                 audio.Pause();
             }
@@ -176,7 +179,7 @@ public class TutorialManager : MonoBehaviour
 
         foreach (AudioSource audio in audios)
         {
-            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundManager" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
+            if (!(audio.gameObject.name == "Audio Description" || audio.gameObject.name == "SoundTrack" || audio.gameObject.name == "Morcego" || audio.gameObject.name == "LifeManager"))
             {
                 if (audio.isPlaying == false)
                     audio.Play();

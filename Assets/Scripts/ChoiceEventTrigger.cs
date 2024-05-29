@@ -8,8 +8,10 @@ public class ChoiceEventTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Debug.Log("Player entered the event trigger");
             EnemyGenerator.instance.Event();
-            LeanTween.moveX(other.gameObject, 0, 0.01f);
+            LeanTween.moveX(other.gameObject, 0, 0.1f);
             LeanTween.moveY(other.gameObject, 0, 2f);
+            GameObject.Find("Morcego").GetComponent<AudioSource>().clip = GameObject.Find("Morcego").GetComponent<SwipeBat>().movedClip;
+            GameObject.Find("Morcego").GetComponent<AudioSource>().Play();
         }
     }
 }

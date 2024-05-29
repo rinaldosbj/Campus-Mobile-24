@@ -21,7 +21,7 @@ public class SwipeBat : MonoBehaviour
     private bool canMove = true;
     [HideInInspector]
     public bool canSwipe = true;
-    [SerializeField] private AudioClip movedClip;
+    [SerializeField] public AudioClip movedClip;
     [SerializeField] private AudioClip failedToMoveClip;
 
     // Double tap variables
@@ -45,7 +45,13 @@ public class SwipeBat : MonoBehaviour
         {
             hasMoved = true;
             ToggleCanMove();
-            Invoke("ToggleCanMove", 5f);
+            if ((PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled()) ||
+            (PlayerPrefs.GetInt("TutorialIsOn") != 0 && !UAP_AccessibilityManager.IsEnabled()))
+            {
+                Invoke("ToggleCanMove", 2f);
+            }
+            else
+                Invoke("ToggleCanMove", 5f);
         }
         else if (Input.touchCount == 1 && !chosePath && canSwipe) // User is touching the screen with a single touch
         {

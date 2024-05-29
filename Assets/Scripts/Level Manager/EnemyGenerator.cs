@@ -9,21 +9,21 @@ using UnityEngine.SceneManagement;
 public class EnemyGenerator : MonoBehaviour
 {
     public bool isInTutorial;
-    [SerializeField] 
+    [SerializeField]
     private int difficultyLevel = 0;
-    [SerializeField] 
+    [SerializeField]
     private int enemiesNumber;
     private int enemiesCount = 0;
     private float timer = 0f;
     private float timeInterval;
-    [SerializeField] 
+    [SerializeField]
     private List<GameObject> enemies;
-    [SerializeField] 
+    [SerializeField]
     private GameObject coin;
     private bool canSpawn = true;
     private bool canSpawnCoin = true;
     private bool triggeredEvent = false;
-    [SerializeField] 
+    [SerializeField]
     public bool isAWinningScene;
     [SerializeField]
     private CutScene[] cutScenes;
@@ -47,8 +47,9 @@ public class EnemyGenerator : MonoBehaviour
         aspect = (float)Screen.width / Screen.height;
         worldHeight = GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize * 2;
         worldWidth = worldHeight * aspect;
-        
-        if (GameObject.Find("TutorialCanvas") != null) {
+
+        if (GameObject.Find("TutorialCanvas") != null)
+        {
             TutorialTextGroup = GameObject.Find("TutorialCanvas").gameObject.transform.Find("TutorialTextGroup").gameObject;
             TutorialText = TutorialTextGroup.transform.Find("TutorialText").GetComponent<TextMeshProUGUI>();
         }
@@ -92,13 +93,14 @@ public class EnemyGenerator : MonoBehaviour
         }
     }
 
-    public void CheckIfMustWin() {
+    public void CheckIfMustWin()
+    {
         if (isAWinningScene && !calledScene)
         {
             calledScene = true;
             var currentScene = PlayerPrefs.GetString("NextScene");
-            Debug.Log("CheckIfMustWin"+currentScene);
-            FadeController.CallScene("Scenes/Mapa/"+currentScene);
+            Debug.Log("CheckIfMustWin" + currentScene);
+            FadeController.CallScene("Scenes/Mapa/" + currentScene);
             PlayerPrefs.SetString("NextScene", "Win");
         }
     }
@@ -185,7 +187,13 @@ public class EnemyGenerator : MonoBehaviour
 
     public void Event()
     {
-            PlayerPrefs.SetInt("isOnEventState", 1);
+        PlayerPrefs.SetInt("isOnEventState", 1);
+        if ((PlayerPrefs.GetInt("AudioDescriptionIsOn") == 0 && UAP_AccessibilityManager.IsEnabled()) ||
+        (PlayerPrefs.GetInt("TutorialIsOn") != 0 && !UAP_AccessibilityManager.IsEnabled()))
+        {
+            TutorialTextGroup.SetActive(false);
+        }
+        else
             runChoseAWayAnimation();
     }
 
@@ -194,29 +202,30 @@ public class EnemyGenerator : MonoBehaviour
         TutorialTextGroup.SetActive(true);
         GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = false;
         count = 0;
-        PlayerPrefs.SetInt("isOnTutorial",1);
+        PlayerPrefs.SetInt("isOnTutorial", 1);
         cyclicFunction();
     }
 
-    private void cyclicFunction() {
-        if (count < cutScenes.Length) 
+    private void cyclicFunction()
+    {
+        if (count < cutScenes.Length)
         {
             audioSource.clip = cutScenes[count].audioDescription;
             audioSource.Play();
             UpdateText(cutScenes[count].text);
-            Invoke("cyclicFunction",cutScenes[count].duration);
+            Invoke("cyclicFunction", cutScenes[count].duration);
             count++;
         }
         else
         {
-            PlayerPrefs.SetInt("isOnTutorial",0);
+            PlayerPrefs.SetInt("isOnTutorial", 0);
             GameObject.Find("Morcego").GetComponent<SwipeBat>().canSwipe = true;
             TutorialTextGroup.SetActive(false);
         }
-        
+
     }
 
-    private void UpdateText(string text) 
+    private void UpdateText(string text)
     {
         TutorialText.text = text;
         TutorialText.gameObject.GetComponent<TMPEffect>().ResetEffect();
@@ -224,7 +233,8 @@ public class EnemyGenerator : MonoBehaviour
 }
 
 [Serializable]
-public class CutScene {
+public class CutScene
+{
     public string text;
     public float duration;
     public AudioClip audioDescription;
